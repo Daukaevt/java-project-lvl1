@@ -39,6 +39,10 @@ public class App {
      */
     public static final int PRIME = 6;
 
+    /**
+     * main method to run.
+     * @param args args array.
+     */
     public static void main(final String[] args) {
         makeUserDialog();
     }
