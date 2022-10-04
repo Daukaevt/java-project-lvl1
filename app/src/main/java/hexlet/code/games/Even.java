@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-
-
 import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import java.util.ArrayList;
