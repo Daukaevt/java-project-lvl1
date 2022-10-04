@@ -11,14 +11,14 @@ public class EngineData {
     /**
      *  list of 3 quests.
      */
-    private List<String> questList;
+    private List<Object> questList;
     /**
      * list of 3 answers.
      */
     private List<String> answerList;
     public EngineData(
             final String quest,
-            final List<String> listQuest,
+            final List<Object> listQuest,
             final List<String> listAnswer
     ) {
         this.gameQuest = quest;
@@ -28,7 +28,7 @@ public class EngineData {
     public String getGameQuest() {
         return this.gameQuest;
     }
-    public List<String> getQuestList() {
+    public List<Object> getQuestList() {
         return this.questList;
     }
     public List<String> getAnswerList() {
