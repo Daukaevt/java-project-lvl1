@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 
-import hexlet.code.Cli;
+
 import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import java.util.ArrayList;
@@ -30,11 +30,11 @@ public class Even {
         String gameQuest =
                 "Answer 'yes' if the number is even, otherwise answer 'no'.";
         System.out.print(welcome);
-        List<String> rndList = new ArrayList<>();
+        List<Object> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
             rndList.add(random());
-            answerList.add(correctAnswer(Integer.parseInt(rndList.get(i))));
+            answerList.add(correctAnswer(Integer.parseInt(String.valueOf(rndList.get(i)))));
         }
         var engine = new EngineData(
                 gameQuest,
