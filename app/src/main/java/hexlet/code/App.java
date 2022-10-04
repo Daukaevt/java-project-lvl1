@@ -6,6 +6,7 @@ package hexlet.code;
 //import hexlet.gradle.project.games.Progression;
 //import hexlet.gradle.project.games.Prime;
 
+import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 
 import java.util.Scanner;
@@ -72,7 +73,7 @@ public class App {
             switch (intScan) {
                 case WELCOME -> Cli.haveName();
                 case EVEN -> Even.play();
-               // case CALC -> Calc.play();
+                case CALC -> Calc.play();
                // case GCD -> hexlet.gradle.project.games.GCD.play();
                // case PROGRESSION -> Progression.play();
               //  case PRIME -> Prime.play();
