@@ -2,10 +2,11 @@ package hexlet.code;
 
 //
 //import hexlet.gradle.project.games.Calc;
-//import hexlet.gradle.project.games.Even;
 //import hexlet.gradle.project.games.GCD;
 //import hexlet.gradle.project.games.Progression;
 //import hexlet.gradle.project.games.Prime;
+
+import hexlet.code.games.Even;
 
 import java.util.Scanner;
 
@@ -70,7 +71,7 @@ public class App {
         if (0 < intScan && intScan <= MAXID) {
             switch (intScan) {
                 case WELCOME -> Cli.haveName();
-               // case EVEN -> Even.play();
+                case EVEN -> Even.play();
                // case CALC -> Calc.play();
                // case GCD -> hexlet.gradle.project.games.GCD.play();
                // case PROGRESSION -> Progression.play();
