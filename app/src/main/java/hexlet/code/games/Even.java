@@ -18,10 +18,15 @@ public class Even {
      */
     public static final int MAXRND = 100;
     /**
+     * Welcome string.
+     */
+    public static final String welcome = "Welcome to the Brain Games!"
+            + "\nMay I have your name? ";
+
+    /**
      * start Even game logic.
      */
     public static void play() {
-        String welcome = Cli.welcome();
         String gameQuest =
                 "Answer 'yes' if the number is even, otherwise answer 'no'.";
         System.out.print(welcome);
