@@ -38,6 +38,7 @@ public class Calc {
             questionList.add(makeExpression());
             answerList.add(makeSolution(String.valueOf(questionList.get(i))));
         }
+        System.out.println("afg" + questionList);
         String gameQuest = "What is the result of the expression?";
         var engine = new EngineData(
                 gameQuest,
