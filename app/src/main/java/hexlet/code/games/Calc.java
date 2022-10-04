@@ -32,11 +32,11 @@ public class Calc {
      */
     public static void play() {
         System.out.print(welcome);
-        List<String> questionList = new ArrayList<>();
+        List<Object> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
             questionList.add(makeExpression());
-            answerList.add(makeSolution(questionList.get(i)));
+            answerList.add(makeSolution(String.valueOf(questionList.get(i))));
         }
         String gameQuest = "What is the result of the expression?";
         var engine = new EngineData(
@@ -47,11 +47,12 @@ public class Calc {
     }
     /**
      * Calc game random logic.
+     *
      * @return question string.
      */
-    public static String makeExpression() {
-        String firstRND = Integer.toString(random(MAXRND));
-        String secondRND = Integer.toString(random(MAXRND));
+    public static Object makeExpression() {
+        int firstRND = random(MAXRND);
+        int secondRND = random(MAXRND);
         int mathOperation = random(MAXMATHOPERATIONS);
         var mathOperator = switch (mathOperation) {
             case 0 -> "+";
