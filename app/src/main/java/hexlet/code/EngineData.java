@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public final class EngineData {
