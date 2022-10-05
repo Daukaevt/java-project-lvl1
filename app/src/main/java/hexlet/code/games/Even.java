@@ -8,6 +8,11 @@ import java.util.Random;
 
 public class Even {
     /**
+     * welcome.
+     */
+    private static final String WELCOME = "Welcome to the Brain Games!"
+            + "\nMay I have your name? ";
+    /**
      * number of games.
      */
     public static final int GAMES = 3;
@@ -16,23 +21,17 @@ public class Even {
      */
     public static final int MAXRND = 100;
     /**
-     * Welcome string.
-     */
-    public static final String welcome = "Welcome to the Brain Games!"
-            + "\nMay I have your name? ";
-
-    /**
      * start Even game logic.
      */
     public static void play() {
         String gameQuest =
                 "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        System.out.print(welcome);
-        List<Object> rndList = new ArrayList<>();
+        System.out.print(WELCOME);
+        List<String> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
             rndList.add(random());
-            answerList.add(correctAnswer(Integer.parseInt(String.valueOf(rndList.get(i)))));
+            answerList.add(correctAnswer(Integer.parseInt(rndList.get(i))));
         }
         var engine = new EngineData(
                 gameQuest,
