@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class EngineData {
@@ -11,11 +12,11 @@ public final class EngineData {
     /**
      *  list of 3 quests.
      */
-    private List<String> questList;
+    private final List<String> questList;
     /**
      * list of 3 answers.
      */
-    private List<String> answerList;
+    private final List<String> answerList;
 
     /**
      * data class.
@@ -56,4 +57,5 @@ public final class EngineData {
     public List<String> getAnswerList() {
         return this.answerList;
     }
+
 }

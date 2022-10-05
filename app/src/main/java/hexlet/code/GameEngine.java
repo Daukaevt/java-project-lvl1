@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GameEngine {
@@ -32,8 +33,8 @@ public class GameEngine {
         }
         System.out.println(engineData.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
-            System.out.println("Question: " + engineData.getQuestList().get(i));
-            System.out.print("Your answer: ");
+            var quest = engineData.getQuestList().get(i);
+            System.out.print("Question: " + quest + "\nYour answer: ");
             if (scanner.hasNext()) {
                 userAnswer = scanner.next();
             }

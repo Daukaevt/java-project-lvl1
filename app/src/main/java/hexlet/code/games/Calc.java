@@ -52,9 +52,9 @@ public class Calc {
         String secondRND = Integer.toString(random(MAXRND));
         int mathOperation = random(MAXMATHOPERATIONS);
         var mathOperator = switch (mathOperation) {
-            case 0 -> "+";
-            case 1 -> "-";
-            case 2 -> "*";
+            case 0 -> " + ";
+            case 1 -> " - ";
+            case 2 -> " * ";
             default -> throw new IllegalStateException(
                     "Unexpected value: " + mathOperation);
         };
