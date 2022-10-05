@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-
-
 import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import org.mariuszgromada.math.mxparser.Expression;
@@ -11,9 +9,9 @@ import java.util.Random;
 
 public class Calc {
     /**
-     * Welcome string.
+     * welcome string.
      */
-    public static final String welcome = "Welcome to the Brain Games!"
+    private static final String welcome = "Welcome to the Brain Games!"
             + "\nMay I have your name? ";
     /**
      * number of games.
@@ -32,13 +30,12 @@ public class Calc {
      */
     public static void play() {
         System.out.print(welcome);
-        List<Object> questionList = new ArrayList<>();
+        List<String> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
             questionList.add(makeExpression());
-            answerList.add(makeSolution(String.valueOf(questionList.get(i))));
+            answerList.add(makeSolution(questionList.get(i)));
         }
-        System.out.println("afg" + questionList);
         String gameQuest = "What is the result of the expression?";
         var engine = new EngineData(
                 gameQuest,
@@ -48,12 +45,11 @@ public class Calc {
     }
     /**
      * Calc game random logic.
-     *
      * @return question string.
      */
-    public static Object makeExpression() {
-        int firstRND = random(MAXRND);
-        int secondRND = random(MAXRND);
+    public static String makeExpression() {
+        String firstRND = Integer.toString(random(MAXRND));
+        String secondRND = Integer.toString(random(MAXRND));
         int mathOperation = random(MAXMATHOPERATIONS);
         var mathOperator = switch (mathOperation) {
             case 0 -> "+";
