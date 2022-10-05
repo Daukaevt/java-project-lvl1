@@ -24,6 +24,9 @@ public class Progression {
      * max progression line length.
      */
     public static final int PROGRESSION_LENGTH = 10;
+    /**
+     * start Progression game logic.
+     */
     public static void play() {
         String gameQuest =
                 "What number is missing in the progression?";

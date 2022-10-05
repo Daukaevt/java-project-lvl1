@@ -11,7 +11,7 @@ public class Calc {
     /**
      * welcome string.
      */
-    private static final String welcome = "Welcome to the Brain Games!"
+    private static final String WELCOME = "Welcome to the Brain Games!"
             + "\nMay I have your name? ";
     /**
      * number of games.
@@ -29,7 +29,7 @@ public class Calc {
      * start Calc game logic.
      */
     public static void play() {
-        System.out.print(welcome);
+        System.out.print(WELCOME);
         List<String> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
@@ -60,12 +60,24 @@ public class Calc {
         };
         return firstRND + mathOperator + secondRND;
     }
+
+    /**
+     * correct answer.
+     * @param quest game quest params.
+     * @return answer int.
+     */
     public static String makeSolution(final String quest) {
         Expression expr = new Expression(quest);
         double d = expr.calculate();
         int solution = (int) d;
         return Integer.toString(solution);
     }
+
+    /**
+     * get random int.
+     * @param max max random int.
+     * @return random int.
+     */
     public static int random(final int max) {
         Random rnd = new Random(); //instance of random class
         return rnd.nextInt(0, max);

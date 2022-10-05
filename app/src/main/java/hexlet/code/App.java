@@ -6,8 +6,11 @@ package hexlet.code;
 //import hexlet.gradle.project.games.Progression;
 //import hexlet.gradle.project.games.Prime;
 
-import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -74,9 +77,9 @@ public class App {
                 case WELCOME -> Cli.haveName();
                 case EVEN -> Even.play();
                 case CALC -> Calc.play();
-               // case GCD -> hexlet.gradle.project.games.GCD.play();
-               // case PROGRESSION -> Progression.play();
-              //  case PRIME -> Prime.play();
+                case GCD -> hexlet.code.games.GCD.play();
+                case PROGRESSION -> Progression.play();
+                case PRIME -> Prime.play();
                 default -> {
                 }
             }
