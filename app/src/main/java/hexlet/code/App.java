@@ -1,14 +1,9 @@
 package hexlet.code;
 
-//
-//import hexlet.gradle.project.games.Calc;
-//import hexlet.gradle.project.games.GCD;
-//import hexlet.gradle.project.games.Progression;
-//import hexlet.gradle.project.games.Prime;
+
 
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
