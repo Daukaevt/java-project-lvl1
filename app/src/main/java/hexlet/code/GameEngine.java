@@ -27,9 +27,8 @@ public class GameEngine {
     public static void getFullString(final EngineData engineData) {
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNext()) {
-            System.out.print("Hello, ");
             name = scanner.next();
-            System.out.println(name + "!");
+            System.out.println("Hello, " + name + "!");
         }
         System.out.println(engineData.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
@@ -50,9 +49,8 @@ public class GameEngine {
                 break;
             }
         }
-        while (count == GAMES) {
+        if (count == GAMES) {
             System.out.println("Congratulations, " + name + "!");
-            break;
         }
         scanner.close();
     }
