@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 
-import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +33,7 @@ public class Prime {
             rndList.add(random());
             answerList.add(checkIfPrime(rndList.get(i)));
         }
-        var engine = new EngineData(
+        var engine = new GameEngine(
                 gameQuest,
                 rndList,
                 answerList);

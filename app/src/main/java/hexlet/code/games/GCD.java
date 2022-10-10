@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +29,7 @@ public class GCD {
             questionList.add(makeExpression());
             answerList.add(makeSolution(questionList.get(i)));
         }
-        var engine = new EngineData(
+        var engine = new GameEngine(
                 gameQuest,
                 questionList,
                 answerList);

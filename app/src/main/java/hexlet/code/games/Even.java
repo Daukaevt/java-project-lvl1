@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class Even {
             rndList.add(random());
             answerList.add(correctAnswer(Integer.parseInt(rndList.get(i))));
         }
-        var engine = new EngineData(
+        var engine = new GameEngine(
                 gameQuest,
                 rndList,
                 answerList);

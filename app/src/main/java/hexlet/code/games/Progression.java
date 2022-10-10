@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class Progression {
             questionList.add(makeExpression());
             answerList.add(getProgressionNum1(questionList.get(i)));
         }
-        var engine = new EngineData(
+        var engine = new GameEngine(
                 gameQuest,
                 questionList,
                 answerList);

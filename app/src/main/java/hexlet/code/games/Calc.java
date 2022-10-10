@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.EngineData;
 import hexlet.code.GameEngine;
 import org.mariuszgromada.math.mxparser.Expression;
 import java.util.ArrayList;
@@ -37,7 +36,7 @@ public class Calc {
             answerList.add(makeSolution(questionList.get(i)));
         }
         String gameQuest = "What is the result of the expression?";
-        var engine = new EngineData(
+        var engine = new GameEngine(
                 gameQuest,
                 questionList,
                 answerList);
