@@ -49,7 +49,9 @@ public class GCD {
         Arrays.sort(arr);
         var remainder = arr[0];
         do {
-            if (remainder == 0) break;
+            if (remainder == 0) {
+                break;
+            }
             remainder = arr[1] % arr[0];
             arr[1] = arr[0];
             arr[0] = remainder;
