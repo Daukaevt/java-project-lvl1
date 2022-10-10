@@ -49,6 +49,7 @@ public class GCD {
         Arrays.sort(arr);
         var remainder = arr[0];
         do {
+            if (remainder == 0) break;
             remainder = arr[1] % arr[0];
             arr[1] = arr[0];
             arr[0] = remainder;
@@ -63,6 +64,7 @@ public class GCD {
         Random rnd = new Random(); //instance of random class
         int firstRND = rnd.nextInt(0, Even.MAXRND);
         int secondRND = rnd.nextInt(0, Even.MAXRND);
+
         return firstRND + " " + secondRND;
     }
 }
