@@ -1,6 +1,7 @@
 package hexlet.code;
 
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GameEngine {
@@ -21,24 +22,77 @@ public class GameEngine {
      */
     private static String name = "";
     /**
-     * engine quest building method.
-     * @param engineData game data.
+     * game quest data.
      */
-    public static void getFullString(final EngineData engineData) {
+    private final String gameQuest;
+    /**
+     *  list of 3 quests.
+     */
+    private final List<String> questList;
+    /**
+     * list of 3 answers.
+     */
+    private final List<String> answerList;
+
+    /**
+     * data class.
+     * @param quest game question.
+     * @param listQuest list of game question params.
+     * @param listAnswer list of game answers.
+     */
+    public GameEngine(
+            final String quest,
+            final List<String> listQuest,
+            final List<String> listAnswer
+    ) {
+        this.gameQuest = quest;
+        this.questList = listQuest;
+        this.answerList = listAnswer;
+    }
+
+    /**
+     * game question.
+     * @return game question string.
+     */
+    public String getGameQuest() {
+        return this.gameQuest;
+    }
+
+    /**
+     * list of game question params.
+     * @return quest list.
+     */
+    public List<String> getQuestList() {
+        return this.questList;
+    }
+
+    /**
+     * list of game answers.
+     * @return answers list.
+     */
+    public List<String> getAnswerList() {
+        return this.answerList;
+    }
+
+    /**
+     * engine quest building method.
+     * @param gameEngine datas.
+     */
+    public static void getFullString(final GameEngine gameEngine) {
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNext()) {
             name = scanner.next();
             System.out.println("Hello, " + name + "!");
         }
-        System.out.println(engineData.getGameQuest());
+        System.out.println(gameEngine.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
-            var quest = engineData.getQuestList().get(i);
+            var quest = gameEngine.getQuestList().get(i);
             System.out.print("Question: " + quest + "\nYour answer: ");
             if (scanner.hasNext()) {
                 userAnswer = scanner.next();
             }
             assert userAnswer != null;
-            var correctAnswer = engineData.getAnswerList().get(i);
+            var correctAnswer = gameEngine.getAnswerList().get(i);
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
                 count++;
