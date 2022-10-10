@@ -55,6 +55,9 @@ public class Prime {
     public static String checkIfPrime(
             final String quest) {
         int intQuest = Integer.parseInt(quest);
+        if (intQuest < 2) {
+            return "no";
+        }
         for (int i = 2; i < intQuest; i++) {
             if (intQuest % i == 0) {
                 return "no";
