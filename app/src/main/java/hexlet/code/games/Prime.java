@@ -37,7 +37,7 @@ public class Prime {
                 gameQuest,
                 rndList,
                 answerList);
-        GameEngine.getFullString(engine);
+        GameEngine.run(engine);
     }
     /**
      * random number 0..MAXRND.

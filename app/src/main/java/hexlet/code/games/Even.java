@@ -36,7 +36,7 @@ public class Even {
                 gameQuest,
                 rndList,
                 answerList);
-        GameEngine.getFullString(engine);
+        GameEngine.run(engine);
     }
     /**
      * Even game if even question.

@@ -78,7 +78,7 @@ public class GameEngine {
      * engine quest building method.
      * @param gameEngine datas.
      */
-    public static void getFullString(final GameEngine gameEngine) {
+    public static void run(final GameEngine gameEngine) {
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNext()) {
             name = scanner.next();
@@ -91,7 +91,6 @@ public class GameEngine {
             if (scanner.hasNext()) {
                 userAnswer = scanner.next();
             }
-            assert userAnswer != null;
             var correctAnswer = gameEngine.getAnswerList().get(i);
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");

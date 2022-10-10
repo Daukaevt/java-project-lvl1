@@ -40,7 +40,7 @@ public class Calc {
                 gameQuest,
                 questionList,
                 answerList);
-        GameEngine.getFullString(engine);
+        GameEngine.run(engine);
     }
     /**
      * Calc game random logic.

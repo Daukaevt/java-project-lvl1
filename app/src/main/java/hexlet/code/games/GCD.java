@@ -33,7 +33,7 @@ public class GCD {
                 gameQuest,
                 questionList,
                 answerList);
-        GameEngine.getFullString(engine);
+        GameEngine.run(engine);
     }
     /**
      * make correct answer.

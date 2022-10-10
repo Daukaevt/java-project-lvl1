@@ -40,7 +40,7 @@ public class Progression {
                 gameQuest,
                 questionList,
                 answerList);
-        GameEngine.getFullString(engine);
+        GameEngine.run(engine);
     }
     /**
      * missing number question params.
