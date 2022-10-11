@@ -26,7 +26,7 @@ public class Progression {
     /**
      * max progression line length.
      */
-    public static final int PR_LENGTH = 10;
+    public static final int PR_LENGTH = 9;
     /**
      * start Progression game logic.
      */
@@ -55,7 +55,7 @@ public class Progression {
         int stepRange = Integer.parseInt(RandomUtils.makeRandom(MAXSTEP)) + 1;
         int indexedRange = Integer.parseInt(RandomUtils.makeRandom(PR_LENGTH));
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < PR_LENGTH; i++) {
+        for (int i = 0; i <= PR_LENGTH; i++) {
             if (i == indexedRange) {
                 stringBuilder.append(" ..");
             } else {
