@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Even {
     /**
@@ -29,7 +29,7 @@ public class Even {
         List<String> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
-            rndList.add(random());
+            rndList.add(RandomUtils.makeRandom(MAXRND));
             answerList.add(correctAnswer(Integer.parseInt(rndList.get(i))));
         }
         var engine = new GameEngine(
@@ -37,14 +37,6 @@ public class Even {
                 rndList,
                 answerList);
         GameEngine.run(engine);
-    }
-    /**
-     * Even game if even question.
-     * @return if even question String.
-     */
-    public static String random() {
-        Random rnd = new Random(); //instance of random class
-        return Integer.toString(rnd.nextInt(0, MAXRND));
     }
     private static String correctAnswer(final int nextRND) {
         return nextRND % 2 == 0 ? "yes" : "no";

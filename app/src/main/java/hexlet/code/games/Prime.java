@@ -2,9 +2,9 @@ package hexlet.code.games;
 
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Prime {
     /**
@@ -30,7 +30,7 @@ public class Prime {
         List<String> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
-            rndList.add(random());
+            rndList.add(RandomUtils.makeRandom(MAXRND));
             answerList.add(checkIfPrime(rndList.get(i)));
         }
         var engine = new GameEngine(
@@ -38,14 +38,6 @@ public class Prime {
                 rndList,
                 answerList);
         GameEngine.run(engine);
-    }
-    /**
-     * random number 0..MAXRND.
-     * @return question String.
-     */
-    public static String random() {
-        Random rnd = new Random();
-        return Integer.toString(rnd.nextInt(0, MAXRND));
     }
     /**
      * it gives correct answer if given number prime or not.

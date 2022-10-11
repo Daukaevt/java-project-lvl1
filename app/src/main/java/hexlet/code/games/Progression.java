@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Progression {
     /**
@@ -16,13 +16,17 @@ public class Progression {
      */
     public static final int GAMES = 3;
     /**
+     * max random number.
+     */
+    public static final int MAXRND = 100;
+    /**
      * max random progression step.
      */
-    public static final int MAXSTEP = 10;
+    public static final int MAXSTEP = 9;
     /**
      * max progression line length.
      */
-    public static final int PROGRESSION_LENGTH = 10;
+    public static final int PR_LENGTH = 10;
     /**
      * start Progression game logic.
      */
@@ -47,12 +51,11 @@ public class Progression {
      * @return missing number question params string.
      */
     public static String makeExpression() {
-        Random rnd = new Random(); //instance of random class
-        int firstRangeNum = rnd.nextInt(0, Even.MAXRND);
-        int stepRange = rnd.nextInt(1, MAXSTEP);
-        int indexedRange = rnd.nextInt(0, PROGRESSION_LENGTH);
+        int firstRangeNum = Integer.parseInt(RandomUtils.makeRandom(MAXRND));
+        int stepRange = Integer.parseInt(RandomUtils.makeRandom(MAXSTEP)) + 1;
+        int indexedRange = Integer.parseInt(RandomUtils.makeRandom(PR_LENGTH));
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < PROGRESSION_LENGTH; i++) {
+        for (int i = 0; i < PR_LENGTH; i++) {
             if (i == indexedRange) {
                 stringBuilder.append(" ..");
             } else {
@@ -91,7 +94,7 @@ public class Progression {
                 index1 = Integer.parseInt(stringArr[1]);
                 intAnswer = index1 - (index2 - index1);
             }
-            case PROGRESSION_LENGTH - 1 -> {
+            case PR_LENGTH -> {
                 index2 = Integer.parseInt(stringArr[length - 2]);
                 index1 = Integer.parseInt(stringArr[length - 1]);
                 intAnswer = index1 + (index1 - index2);

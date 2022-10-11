@@ -1,10 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class GCD {
     /**
@@ -16,6 +16,10 @@ public class GCD {
      * number of games.
      */
     public static final int GAMES = 3;
+    /**
+     * max random number.
+     */
+    public static final int MAXRND = 100;
     /**
      * start GCD game logic.
      */
@@ -63,10 +67,8 @@ public class GCD {
      * @return params string.
      */
     private static String makeExpression() {
-        Random rnd = new Random(); //instance of random class
-        int firstRND = rnd.nextInt(0, Even.MAXRND);
-        int secondRND = rnd.nextInt(0, Even.MAXRND);
-
+        int firstRND = Integer.parseInt(RandomUtils.makeRandom(MAXRND));
+        int secondRND = Integer.parseInt(RandomUtils.makeRandom(MAXRND));
         return firstRND + " " + secondRND;
     }
 }

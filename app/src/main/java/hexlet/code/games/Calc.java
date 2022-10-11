@@ -1,10 +1,11 @@
 package hexlet.code.games;
 
+
 import hexlet.code.GameEngine;
+import hexlet.code.utils.RandomUtils;
 import org.mariuszgromada.math.mxparser.Expression;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Calc {
     /**
@@ -47,9 +48,9 @@ public class Calc {
      * @return question string.
      */
     public static String makeExpression() {
-        String firstRND = Integer.toString(random(MAXRND));
-        String secondRND = Integer.toString(random(MAXRND));
-        int mathOperation = random(MAXMATHOPERATIONS);
+        String firstRND = RandomUtils.makeRandom(MAXRND);
+        String secondRND = RandomUtils.makeRandom(MAXRND);
+        int mathOperation = Integer.parseInt(RandomUtils.makeRandom(MAXMATHOPERATIONS));
         var mathOperator = switch (mathOperation) {
             case 0 -> " + ";
             case 1 -> " - ";
@@ -70,16 +71,6 @@ public class Calc {
         double d = expr.calculate();
         int solution = (int) d;
         return Integer.toString(solution);
-    }
-
-    /**
-     * get random int.
-     * @param max max random int.
-     * @return random int.
-     */
-    public static int random(final int max) {
-        Random rnd = new Random(); //instance of random class
-        return rnd.nextInt(0, max);
     }
 
 }
