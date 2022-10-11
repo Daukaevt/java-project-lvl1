@@ -30,7 +30,7 @@ public class Prime {
         List<String> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
-            rndList.add(RandomUtils.makeRandom(MAXRND));
+            rndList.add(String.valueOf(RandomUtils.makeRandom(MAXRND)));
             answerList.add(checkIfPrime(rndList.get(i)));
         }
         var engine = new GameEngine(

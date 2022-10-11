@@ -8,8 +8,8 @@ public class RandomUtils {
      * @param maxRnd max randoms range int.
      * @return random int
      */
-    public static String makeRandom(final int maxRnd) {
+    public static int makeRandom(final int maxRnd) {
         Random rnd = new Random(); //instance of random class
-        return Integer.toString(rnd.nextInt(0, maxRnd));
+        return rnd.nextInt(0, maxRnd);
     }
 }

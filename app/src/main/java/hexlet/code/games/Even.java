@@ -29,7 +29,7 @@ public class Even {
         List<String> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
-            rndList.add(RandomUtils.makeRandom(MAXRND));
+            rndList.add(String.valueOf(RandomUtils.makeRandom(MAXRND)));
             answerList.add(correctAnswer(Integer.parseInt(rndList.get(i))));
         }
         var engine = new GameEngine(

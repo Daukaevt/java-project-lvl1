@@ -51,9 +51,9 @@ public class Progression {
      * @return missing number question params string.
      */
     public static String makeExpression() {
-        int firstRangeNum = Integer.parseInt(RandomUtils.makeRandom(MAXRND));
-        int stepRange = Integer.parseInt(RandomUtils.makeRandom(MAXSTEP)) + 1;
-        int indexedRange = Integer.parseInt(RandomUtils.makeRandom(PR_LENGTH));
+        int firstRangeNum = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
+        int stepRange = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXSTEP))) + 1;
+        int indexedRange = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(PR_LENGTH)));
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i <= PR_LENGTH; i++) {
             if (i == indexedRange) {

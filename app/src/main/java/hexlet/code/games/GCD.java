@@ -67,8 +67,8 @@ public class GCD {
      * @return params string.
      */
     private static String makeExpression() {
-        int firstRND = Integer.parseInt(RandomUtils.makeRandom(MAXRND));
-        int secondRND = Integer.parseInt(RandomUtils.makeRandom(MAXRND));
+        int firstRND = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
+        int secondRND = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
         return firstRND + " " + secondRND;
     }
 }

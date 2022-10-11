@@ -48,9 +48,9 @@ public class Calc {
      * @return question string.
      */
     public static String makeExpression() {
-        String firstRND = RandomUtils.makeRandom(MAXRND);
-        String secondRND = RandomUtils.makeRandom(MAXRND);
-        int mathOperation = Integer.parseInt(RandomUtils.makeRandom(MAXMATHOPERATIONS));
+        String firstRND = String.valueOf(RandomUtils.makeRandom(MAXRND));
+        String secondRND = String.valueOf(RandomUtils.makeRandom(MAXRND));
+        int mathOperation = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXMATHOPERATIONS)));
         var mathOperator = switch (mathOperation) {
             case 0 -> " + ";
             case 1 -> " - ";
