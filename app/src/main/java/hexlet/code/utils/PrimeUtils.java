@@ -7,13 +7,12 @@ public class PrimeUtils {
      * @return "yes" or "no".
      */
     public static String isPrime(
-            final String quest) {
-        int intQuest = Integer.parseInt(quest);
-        if (intQuest < 2) {
+            final int quest) {
+        if (quest < 2) {
             return "no";
         }
-        for (int i = 2; i < intQuest; i++) {
-            if (intQuest % i == 0) {
+        for (int i = 2; i < quest; i++) {
+            if (quest % i == 0) {
                 return "no";
             }
         }

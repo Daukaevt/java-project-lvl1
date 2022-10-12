@@ -35,7 +35,7 @@ public class Prime {
             rndList.add(Collections.singletonList(
                     RandomUtils.makeRandom(MAXRND)));
             answerList.add(PrimeUtils.isPrime(
-                    String.valueOf(rndList.get(i).get(0))));
+                    Integer.parseInt(String.valueOf(rndList.get(i).get(0)))));
         }
         var engine = new GameEngine(
                 gameQuest,
