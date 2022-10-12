@@ -34,7 +34,7 @@ public class Progression {
         String gameQuest =
                 "What number is missing in the progression?";
         System.out.print(WELCOME);
-        List<String> questionList = new ArrayList<>();
+        List<List<Object>> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
             questionList.add(makeExpression());
@@ -50,58 +50,70 @@ public class Progression {
      * missing number question params.
      * @return missing number question params string.
      */
-    public static String makeExpression() {
-        int firstRangeNum = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
-        int stepRange = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXSTEP))) + 1;
-        int indexedRange = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(PR_LENGTH)));
-        StringBuilder stringBuilder = new StringBuilder();
+    public static List<Object> makeExpression() {
+        var tempList = new ArrayList<>();
+        int firstRangeNum = RandomUtils.makeRandom(MAXRND);
+        int stepRange = RandomUtils.makeRandom(MAXSTEP) + 1;
+        int indexedRange = RandomUtils.makeRandom(PR_LENGTH);
         for (int i = 0; i <= PR_LENGTH; i++) {
             if (i == indexedRange) {
-                stringBuilder.append(" ..");
+                tempList.add(" ..");
             } else {
-                stringBuilder.append(" ").append(firstRangeNum);
+                tempList.add(" ");
+                tempList.add(firstRangeNum);
             }
             firstRangeNum += stepRange;
         }
-        return stringBuilder.substring(1);
+        return tempList;
+                //stringBuilder.substring(1);
     }
     /**
      * get missing num from progression.
      * @param quest progression string.
      * @return correct answer.
      */
-    private static String getProgressionNum1(final String quest) {
+    private static String getProgressionNum1(final List<Object> quest) {
         var correctAnswer = "";
-        var stringArr = quest.split(" ");
+        var tempList = new ArrayList<>();
         var index = 0;
-        int length = stringArr.length;
-        for (int i = 0; i < length; i++) {
-            if (stringArr[i].equals("..")) {
+        for (Object o : quest) {
+            if (!o.equals(" ")) {
+                tempList.add(o);
+            }
+        }
+        for (int i = 0; i < tempList.size(); i++) {
+            if (tempList.get(i).equals(" ..")) {
                 index = i;
             }
         }
-        correctAnswer = Integer.toString(getAnswer(index, stringArr));
+        correctAnswer = Integer.toString(getAnswer(index, tempList));
         return correctAnswer;
     }
-    private static int getAnswer(final int index, final String[] stringArr) {
+    private static int getAnswer(
+            final int index, final List<Object> stringArr
+    ) {
         int intAnswer;
         int index1;
         int index2;
-        int length = stringArr.length - 1;
+        int length = stringArr.size() - 1;
         switch (index) {
             case 0 -> {
-                index2 = Integer.parseInt(stringArr[2]);
-                index1 = Integer.parseInt(stringArr[1]);
+                index2 = Integer.parseInt(String.valueOf(stringArr.get(2)));
+                index1 = Integer.parseInt(String.valueOf(stringArr.get(1)));
                 intAnswer = index1 - (index2 - index1);
             }
             case PR_LENGTH -> {
-                index2 = Integer.parseInt(stringArr[length - 2]);
-                index1 = Integer.parseInt(stringArr[length - 1]);
+                index2 = Integer
+                        .parseInt(String.valueOf(stringArr.get(length - 2)));
+                index1 = Integer
+                        .parseInt(String.valueOf(stringArr.get(length - 1)));
                 intAnswer = index1 + (index1 - index2);
             }
             default -> {
-                index2 = Integer.parseInt(stringArr[index + 1]);
-                index1 = Integer.parseInt(stringArr[index - 1]);
+                index2 = Integer
+                        .parseInt(String.valueOf(stringArr.get(index + 1)));
+                index1 = Integer
+                        .parseInt(String.valueOf(stringArr.get(index - 1)));
                 intAnswer = (index2 + index1) / 2;
             }
         }

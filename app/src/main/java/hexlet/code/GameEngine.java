@@ -28,7 +28,7 @@ public class GameEngine {
     /**
      *  list of 3 quests.
      */
-    private final List<String> questList;
+    private final List<List<Object>> questList;
     /**
      * list of 3 answers.
      */
@@ -42,7 +42,7 @@ public class GameEngine {
      */
     public GameEngine(
             final String quest,
-            final List<String> listQuest,
+            final List<List<Object>> listQuest,
             final List<String> listAnswer
     ) {
         this.gameQuest = quest;
@@ -62,7 +62,7 @@ public class GameEngine {
      * list of game question params.
      * @return quest list.
      */
-    public List<String> getQuestList() {
+    public List<List<Object>> getQuestList() {
         return this.questList;
     }
 
@@ -86,8 +86,13 @@ public class GameEngine {
         }
         System.out.println(gameEngine.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
+            String questStr = "";
+            StringBuilder sb = new StringBuilder(questStr);
             var quest = gameEngine.getQuestList().get(i);
-            System.out.print("Question: " + quest + "\nYour answer: ");
+            for (int j = 0; j < quest.size(); j++) {
+                sb.append(quest.get(j));
+            }
+            System.out.print("Question: " + sb + "\nYour answer: ");
             if (scanner.hasNext()) {
                 userAnswer = scanner.next();
             }

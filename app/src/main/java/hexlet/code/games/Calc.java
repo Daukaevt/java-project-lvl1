@@ -3,7 +3,6 @@ package hexlet.code.games;
 
 import hexlet.code.GameEngine;
 import hexlet.code.utils.RandomUtils;
-import org.mariuszgromada.math.mxparser.Expression;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class Calc {
      */
     public static void play() {
         System.out.print(WELCOME);
-        List<String> questionList = new ArrayList<>();
+        List<List<Object>> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
             questionList.add(makeExpression());
@@ -45,12 +44,14 @@ public class Calc {
     }
     /**
      * Calc game random logic.
+     *
      * @return question string.
      */
-    public static String makeExpression() {
-        String firstRND = String.valueOf(RandomUtils.makeRandom(MAXRND));
-        String secondRND = String.valueOf(RandomUtils.makeRandom(MAXRND));
-        int mathOperation = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXMATHOPERATIONS)));
+    public static List<Object> makeExpression() {
+        var list = new ArrayList<>();
+        int firstRND = RandomUtils.makeRandom(MAXRND);
+        list.add(firstRND);
+        int mathOperation = RandomUtils.makeRandom(MAXMATHOPERATIONS);
         var mathOperator = switch (mathOperation) {
             case 0 -> " + ";
             case 1 -> " - ";
@@ -58,7 +59,11 @@ public class Calc {
             default -> throw new IllegalStateException(
                     "Unexpected value: " + mathOperation);
         };
-        return firstRND + mathOperator + secondRND;
+        list.add(mathOperator);
+        int secondRND = RandomUtils.makeRandom(MAXRND);
+        list.add(secondRND);
+        return list;
+                //firstRND + mathOperator + secondRND;
     }
 
     /**
@@ -66,11 +71,17 @@ public class Calc {
      * @param quest game quest params.
      * @return answer int.
      */
-    public static String makeSolution(final String quest) {
-        Expression expr = new Expression(quest);
-        double d = expr.calculate();
-        int solution = (int) d;
-        return Integer.toString(solution);
+    public static String makeSolution(final List<Object> quest) {
+        var firstInt = Integer.parseInt(quest.get(0).toString());
+        var secondInt = Integer.parseInt(quest.get(2).toString());
+        var result = switch (quest.get(1).toString()) {
+            case  " + " -> firstInt + secondInt;
+            case  " - " -> firstInt - secondInt;
+            case  " * " -> firstInt * secondInt;
+            default -> throw new IllegalStateException(
+                    "Unexpected value: " + quest.get(1).toString());
+        };
+        return String.valueOf(result);
     }
 
 }

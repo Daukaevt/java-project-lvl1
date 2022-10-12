@@ -27,7 +27,7 @@ public class GCD {
         String gameQuest =
                 "Find the greatest common divisor of given numbers.";
         System.out.print(WELCOME);
-        List<String> questionList = new ArrayList<>();
+        List<List<Object>> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
             questionList.add(makeExpression());
@@ -45,11 +45,8 @@ public class GCD {
      * @return solution string.
      */
     public static String makeSolution(
-            final String quest) {
-        String[] str = quest.split(" ");
-        var firstInt = Integer.parseInt(str[0]);
-        var secondInt = Integer.parseInt(str[1]);
-        int[] arr = {firstInt, secondInt};
+            final List<Object> quest) {
+        int[] arr = {(int) quest.get(0), (int) quest.get(2)};
         Arrays.sort(arr);
         var remainder = arr[0];
         do {
@@ -66,9 +63,13 @@ public class GCD {
      * find gcd question params.
      * @return params string.
      */
-    private static String makeExpression() {
+    private static List<Object> makeExpression() {
+        var list = new ArrayList<Object>();
         int firstRND = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
+        list.add(firstRND);
+        list.add(" ");
         int secondRND = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
-        return firstRND + " " + secondRND;
+        list.add(secondRND);
+        return list;
     }
 }

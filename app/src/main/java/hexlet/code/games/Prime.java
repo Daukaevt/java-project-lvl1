@@ -4,6 +4,7 @@ package hexlet.code.games;
 import hexlet.code.GameEngine;
 import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Prime {
@@ -27,11 +28,11 @@ public class Prime {
         String gameQuest =
                 "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         System.out.print(WELCOME);
-        List<String> rndList = new ArrayList<>();
+        List<List<Object>> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
-            rndList.add(String.valueOf(RandomUtils.makeRandom(MAXRND)));
-            answerList.add(checkIfPrime(rndList.get(i)));
+            rndList.add(Collections.singletonList(RandomUtils.makeRandom(MAXRND)));
+            answerList.add(checkIfPrime(String.valueOf(rndList.get(i).get(0))));
         }
         var engine = new GameEngine(
                 gameQuest,
