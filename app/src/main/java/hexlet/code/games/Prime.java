@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.PrimeUtils;
 import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,32 +32,16 @@ public class Prime {
         List<List<Object>> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
-            rndList.add(Collections.singletonList(RandomUtils.makeRandom(MAXRND)));
-            answerList.add(checkIfPrime(String.valueOf(rndList.get(i).get(0))));
+            rndList.add(Collections.singletonList(
+                    RandomUtils.makeRandom(MAXRND)));
+            answerList.add(PrimeUtils.isPrime(
+                    String.valueOf(rndList.get(i).get(0))));
         }
         var engine = new GameEngine(
                 gameQuest,
                 rndList,
                 answerList);
         GameEngine.run(engine);
-    }
-    /**
-     * it gives correct answer if given number prime or not.
-     * @param quest given number.
-     * @return "yes" or "no".
-     */
-    public static String checkIfPrime(
-            final String quest) {
-        int intQuest = Integer.parseInt(quest);
-        if (intQuest < 2) {
-            return "no";
-        }
-        for (int i = 2; i < intQuest; i++) {
-            if (intQuest % i == 0) {
-                return "no";
-            }
-        }
-        return "yes";
     }
 }
 
