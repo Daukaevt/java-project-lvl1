@@ -65,10 +65,12 @@ public class GCD {
      */
     private static List<Object> makeExpression() {
         var list = new ArrayList<Object>();
-        int firstRND = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
+        int firstRND = Integer.parseInt(
+                String.valueOf(RandomUtils.makeRandom(MAXRND)));
         list.add(firstRND);
         list.add(" ");
-        int secondRND = Integer.parseInt(String.valueOf(RandomUtils.makeRandom(MAXRND)));
+        int secondRND = Integer.parseInt(
+                String.valueOf(RandomUtils.makeRandom(MAXRND)));
         list.add(secondRND);
         return list;
     }

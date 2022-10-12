@@ -89,8 +89,8 @@ public class GameEngine {
             String questStr = "";
             StringBuilder sb = new StringBuilder(questStr);
             var quest = gameEngine.getQuestList().get(i);
-            for (int j = 0; j < quest.size(); j++) {
-                sb.append(quest.get(j));
+            for (Object o : quest) {
+                sb.append(o);
             }
             System.out.print("Question: " + sb + "\nYour answer: ");
             if (scanner.hasNext()) {

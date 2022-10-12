@@ -66,7 +66,6 @@ public class Progression {
             firstRangeNum += stepRange;
         }
         return tempList;
-                //stringBuilder.substring(1);
     }
     /**
      * get missing num from progression.

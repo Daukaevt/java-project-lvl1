@@ -30,8 +30,10 @@ public class Even {
         List<List<Object>> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
-            rndList.add(Collections.singletonList(String.valueOf(RandomUtils.makeRandom(MAXRND))));
-            answerList.add(correctAnswer(Integer.parseInt(rndList.get(i).get(0).toString())));
+            rndList.add(Collections.singletonList(
+                    String.valueOf(RandomUtils.makeRandom(MAXRND))));
+            answerList.add(correctAnswer(
+                    Integer.parseInt(rndList.get(i).get(0).toString())));
         }
         var engine = new GameEngine(
                 gameQuest,
