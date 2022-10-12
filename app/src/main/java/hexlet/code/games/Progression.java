@@ -57,10 +57,11 @@ public class Progression {
         int indexedRange = RandomUtils.makeRandom(PR_LENGTH);
         for (int i = 0; i <= PR_LENGTH; i++) {
             if (i == indexedRange) {
-                tempList.add(" ..");
-            } else {
+                tempList.add("..");
                 tempList.add(" ");
+            } else {
                 tempList.add(firstRangeNum);
+                tempList.add(" ");
             }
             firstRangeNum += stepRange;
         }
@@ -82,7 +83,7 @@ public class Progression {
             }
         }
         for (int i = 0; i < tempList.size(); i++) {
-            if (tempList.get(i).equals(" ..")) {
+            if (tempList.get(i).equals("..")) {
                 index = i;
             }
         }
