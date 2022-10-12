@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.EvenUtils;
 import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,7 +33,7 @@ public class Even {
         for (int i = 0; i < GAMES; i++) {
             rndList.add(Collections.singletonList(
                     String.valueOf(RandomUtils.makeRandom(MAXRND))));
-            answerList.add(correctAnswer(
+            answerList.add(EvenUtils.isEven(
                     Integer.parseInt(rndList.get(i).get(0).toString())));
         }
         var engine = new GameEngine(
@@ -40,8 +41,5 @@ public class Even {
                 rndList,
                 answerList);
         GameEngine.run(engine);
-    }
-    private static String correctAnswer(final int nextRND) {
-        return nextRND % 2 == 0 ? "yes" : "no";
     }
 }
