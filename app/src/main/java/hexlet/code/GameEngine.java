@@ -16,11 +16,11 @@ public class GameEngine {
     /**
      * user input answer.
      */
-    private static String userAnswer = null;
+    private static String input = null;
     /**
      * username.
      */
-    private static String name = "";
+    private static String userName;
     /**
      * game quest data.
      */
@@ -36,18 +36,28 @@ public class GameEngine {
 
     /**
      * data class.
-     * @param quest game question.
-     * @param listQuest list of game question params.
+     * @param userName username.
+     * @param quest      game question.
+     * @param listQuest  list of game question params.
      * @param listAnswer list of game answers.
      */
     public GameEngine(
+            final String userName,
             final String quest,
             final List<List<Object>> listQuest,
             final List<String> listAnswer
     ) {
+        this.userName = userName;
         this.gameQuest = quest;
         this.questList = listQuest;
         this.answerList = listAnswer;
+    }
+    /**
+     * game question.
+     * @return game question string.
+     */
+    public String getName() {
+        return userName;
     }
 
     /**
@@ -73,43 +83,52 @@ public class GameEngine {
     public List<String> getAnswerList() {
         return this.answerList;
     }
-
+    /**
+     * string builder class instance.
+     */
+    private static final StringBuilder SB = new StringBuilder();
+    /**
+     * scanner class instance.
+     */
+    private static final Scanner SCANNER = new Scanner(System.in);
+    /**
+     * wrong answer remark.
+     */
+    private static final String NOPE =
+            "' is wrong answer ;(. Correct answer was '";
+    /**
+     * try again remark.
+     */
+    private static final String AGAIN = "'\nLet's try again, ";
     /**
      * engine quest building method.
      * @param gameEngine datas.
      */
     public static void run(final GameEngine gameEngine) {
-        Scanner scanner = new Scanner(System.in);
-        if (scanner.hasNext()) {
-            name = scanner.next();
-            System.out.println("Hello, " + name + "!");
-        }
         System.out.println(gameEngine.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
-            String questStr = "";
-            StringBuilder sb = new StringBuilder(questStr);
             var quest = gameEngine.getQuestList().get(i);
             for (Object o : quest) {
-                sb.append(o);
+                SB.append(o);
             }
-            System.out.print("Question: " + sb + "\nYour answer: ");
-            if (scanner.hasNext()) {
-                userAnswer = scanner.next();
+            System.out.print("Question: " + SB + "\nYour answer: ");
+            if (SCANNER.hasNext()) {
+                input = SCANNER.next();
             }
-            var correctAnswer = gameEngine.getAnswerList().get(i);
-            if (userAnswer.equals(correctAnswer)) {
+            var yep = gameEngine.getAnswerList().get(i);
+            if (input.equals(yep)) {
                 System.out.println("Correct!");
                 count++;
             } else {
-                System.out.println("'" + userAnswer
-                        + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'\nLet's try again, " + name + "!");
+                System.out.print("'" + input + NOPE + yep
+                        + AGAIN + gameEngine.getName() + "!");
                 break;
             }
         }
         if (count == GAMES) {
-            System.out.println("Congratulations, " + name + "!");
+            System.out.println("Congratulations, "
+                    + gameEngine.getName() + "!");
         }
-        scanner.close();
+        SCANNER.close();
     }
 }
