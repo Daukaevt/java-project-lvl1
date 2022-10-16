@@ -1,16 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Progression {
-    /**
-     * welcome.
-     */
-    private static final String WELCOME = "Welcome to the Brain Games!"
-            + "\nMay I have your name? ";
     /**
      * number of games.
      */
@@ -33,7 +29,7 @@ public class Progression {
     public static void play() {
         String gameQuest =
                 "What number is missing in the progression?";
-        System.out.print(WELCOME);
+        String userName = HelloUtils.hello();
         List<List<Object>> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
@@ -41,6 +37,7 @@ public class Progression {
             answerList.add(getProgressionNum1(questionList.get(i)));
         }
         var engine = new GameEngine(
+                userName,
                 gameQuest,
                 questionList,
                 answerList);
