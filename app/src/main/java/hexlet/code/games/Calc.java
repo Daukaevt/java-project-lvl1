@@ -2,16 +2,12 @@ package hexlet.code.games;
 
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Calc {
-    /**
-     * welcome string.
-     */
-    private static final String WELCOME = "Welcome to the Brain Games!"
-            + "\nMay I have your name? ";
     /**
      * number of games.
      */
@@ -28,7 +24,7 @@ public class Calc {
      * start Calc game logic.
      */
     public static void play() {
-        System.out.print(WELCOME);
+        String userName = HelloUtils.hello();
         List<List<Object>> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
@@ -37,6 +33,7 @@ public class Calc {
         }
         String gameQuest = "What is the result of the expression?";
         var engine = new GameEngine(
+                userName,
                 gameQuest,
                 questionList,
                 answerList);
@@ -63,7 +60,6 @@ public class Calc {
         int secondRND = RandomUtils.makeRandom(MAXRND);
         list.add(secondRND);
         return list;
-                //firstRND + mathOperator + secondRND;
     }
 
     /**
