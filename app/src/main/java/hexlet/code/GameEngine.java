@@ -20,7 +20,7 @@ public class GameEngine {
     /**
      * username.
      */
-    private static String userName;
+    private static String userNameStr;
     /**
      * game quest data.
      */
@@ -47,7 +47,7 @@ public class GameEngine {
             final List<List<Object>> listQuest,
             final List<String> listAnswer
     ) {
-        this.userName = userName;
+        this.userNameStr = userName;
         this.gameQuest = quest;
         this.questList = listQuest;
         this.answerList = listAnswer;
@@ -57,7 +57,7 @@ public class GameEngine {
      * @return game question string.
      */
     public String getName() {
-        return userName;
+        return userNameStr;
     }
 
     /**
