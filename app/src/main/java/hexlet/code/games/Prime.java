@@ -25,6 +25,7 @@ public class Prime {
         String gameQuest =
                 "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String userName = HelloUtils.hello();
+        System.out.println(gameQuest);
         List<List<Object>> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
@@ -35,7 +36,6 @@ public class Prime {
         }
         var engine = new GameEngine(
                 userName,
-                gameQuest,
                 rndList,
                 answerList);
         GameEngine.run(engine);

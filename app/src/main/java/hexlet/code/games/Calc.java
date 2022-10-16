@@ -24,6 +24,8 @@ public class Calc {
      * start Calc game logic.
      */
     public static void play() {
+        String gameQuest = "What is the result of the expression?";
+        System.out.println(gameQuest);
         String userName = HelloUtils.hello();
         List<List<Object>> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
@@ -31,10 +33,8 @@ public class Calc {
             questionList.add(makeExpression());
             answerList.add(makeSolution(questionList.get(i)));
         }
-        String gameQuest = "What is the result of the expression?";
         var engine = new GameEngine(
                 userName,
-                gameQuest,
                 questionList,
                 answerList);
         GameEngine.run(engine);

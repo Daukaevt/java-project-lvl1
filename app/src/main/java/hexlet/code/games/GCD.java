@@ -23,6 +23,7 @@ public class GCD {
         String gameQuest =
                 "Find the greatest common divisor of given numbers.";
         String userName = HelloUtils.hello();
+        System.out.println(gameQuest);
         List<List<Object>> questionList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
@@ -31,7 +32,6 @@ public class GCD {
         }
         var engine = new GameEngine(
                 userName,
-                gameQuest,
                 questionList,
                 answerList);
         GameEngine.run(engine);

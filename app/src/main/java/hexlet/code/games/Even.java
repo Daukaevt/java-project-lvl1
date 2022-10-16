@@ -24,6 +24,7 @@ public class Even {
         String gameQuest =
                 "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String userName = HelloUtils.hello();
+        System.out.println(gameQuest);
         List<List<Object>> rndList = new ArrayList<>();
         List<String> answerList = new ArrayList<>();
         for (int i = 0; i < GAMES; i++) {
@@ -34,7 +35,6 @@ public class Even {
         }
         var engine = new GameEngine(
                 userName,
-                gameQuest,
                 rndList,
                 answerList);
         GameEngine.run(engine);

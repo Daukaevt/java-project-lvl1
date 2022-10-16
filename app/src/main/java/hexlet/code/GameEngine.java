@@ -22,10 +22,6 @@ public class GameEngine {
      */
     private static String userNameStr;
     /**
-     * game quest data.
-     */
-    private final String gameQuest;
-    /**
      *  list of 3 quests.
      */
     private final List<List<Object>> questList;
@@ -37,18 +33,15 @@ public class GameEngine {
     /**
      * data class.
      * @param userName username.
-     * @param quest      game question.
      * @param listQuest  list of game question params.
      * @param listAnswer list of game answers.
      */
     public GameEngine(
             final String userName,
-            final String quest,
             final List<List<Object>> listQuest,
             final List<String> listAnswer
     ) {
         this.userNameStr = userName;
-        this.gameQuest = quest;
         this.questList = listQuest;
         this.answerList = listAnswer;
     }
@@ -59,15 +52,6 @@ public class GameEngine {
     public String getName() {
         return userNameStr;
     }
-
-    /**
-     * game question.
-     * @return game question string.
-     */
-    public String getGameQuest() {
-        return this.gameQuest;
-    }
-
     /**
      * list of game question params.
      * @return quest list.
@@ -105,7 +89,6 @@ public class GameEngine {
      * @param engine datas.
      */
     public static void run(final GameEngine engine) {
-        System.out.println(engine.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
             for (Object o : engine.getQuestList().get(i)) {
                 SB.append(o);
