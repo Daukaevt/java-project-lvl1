@@ -12,8 +12,5 @@ public class Cli {
      */
     public static void haveName() {
         HelloUtils.hello();
-        Scanner sc = new Scanner(System.in);
-        String scName = sc.next();
-        System.out.println("Hello, " + scName + "!");
     }
 }
