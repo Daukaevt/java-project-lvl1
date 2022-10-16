@@ -107,8 +107,7 @@ public class GameEngine {
     public static void run(final GameEngine engine) {
         System.out.println(engine.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
-            var quest = engine.getQuestList().get(i);
-            for (Object o : quest) {
+            for (Object o : engine.getQuestList().get(i)) {
                 SB.append(o);
             }
             System.out.print("Question: " + SB + "\nYour answer: ");
