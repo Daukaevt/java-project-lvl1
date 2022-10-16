@@ -102,32 +102,32 @@ public class GameEngine {
     private static final String AGAIN = "'\nLet's try again, ";
     /**
      * engine quest building method.
-     * @param gameEngine datas.
+     * @param engine datas.
      */
-    public static void run(final GameEngine gameEngine) {
-        System.out.println(gameEngine.getGameQuest());
+    public static void run(final GameEngine engine) {
+        System.out.println(engine.getGameQuest());
         for (int i = 0; i < GAMES; i++) {
-            var quest = gameEngine.getQuestList().get(i);
+            var quest = engine.getQuestList().get(i);
             for (Object o : quest) {
                 SB.append(o);
             }
             System.out.print("Question: " + SB + "\nYour answer: ");
+            SB.setLength(0);
             if (SCANNER.hasNext()) {
                 input = SCANNER.next();
             }
-            var yep = gameEngine.getAnswerList().get(i);
+            var yep = engine.getAnswerList().get(i);
             if (input.equals(yep)) {
                 System.out.println("Correct!");
                 count++;
             } else {
                 System.out.print("'" + input + NOPE + yep
-                        + AGAIN + gameEngine.getName() + "!");
+                        + AGAIN + engine.getName() + "!");
                 break;
             }
         }
         if (count == GAMES) {
-            System.out.println("Congratulations, "
-                    + gameEngine.getName() + "!");
+            System.out.println("Congratulations, " + engine.getName() + "!");
         }
         SCANNER.close();
     }
