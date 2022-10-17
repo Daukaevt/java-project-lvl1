@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Daukaevt/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/Daukaevt/java-project-lvl1/actions)
 
-<a href="https://codeclimate.com/github/Daukaevt/java-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/0f42ee974cc2ae400dac/maintainability" /></a>
+<a href="https://codeclimate.com/github/Daukaevt/java-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/5568c27453dec66cc4a7/maintainability" /></a>
 
 // аскинема с примером запуска игры Even, победой и поражением игрока.
 
