@@ -47,16 +47,16 @@ public class GameEngine {
             }
             if (input.equals(answers[i])) {
                 System.out.println("Correct!");
-                do {
-                    count++;
-                } while (count < GAMES);
+                count++;
             } else {
                 System.out.print("'" + input + NOPE + answers[i]
                         + AGAIN + userNameStr + "!");
                 break;
             }
         }
-        System.out.println("Congratulations, " + userNameStr + "!");
+        if (count == GAMES) {
+            System.out.println("Congratulations, " + userNameStr + "!");
+        }
         SCANNER.close();
     }
 }
