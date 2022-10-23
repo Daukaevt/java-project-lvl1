@@ -24,6 +24,19 @@ public class CalculateGame {
     private static final String GAMECONDITION =
             "What is the result of the expression?";
     /**
+     * first expression number.
+     */
+    private static int firstNum;
+    /**
+     * expression math operator.
+     */
+    private static char mathOperator;
+    /**
+     * second expression number.
+     */
+    private static int secondNum;
+
+    /**
      * start Calc game logic.
      */
     public static void play() {
@@ -43,19 +56,19 @@ public class CalculateGame {
      */
     public static String makeExpression() {
         var sb = new StringBuilder();
-        int firstRND = RandomUtils.makeRandom(MAXRND);
-        sb.append(firstRND);
+        firstNum = RandomUtils.makeRandom(MAXRND);
+        sb.append(firstNum).append(" ");
         int mathOperation = RandomUtils.makeRandom(MAXMATHOPERATIONS);
-        var mathOperator = switch (mathOperation) {
-            case 0 -> " + ";
-            case 1 -> " - ";
-            case 2 -> " * ";
+        mathOperator = switch (mathOperation) {
+            case 0 -> '+';
+            case 1 -> '-';
+            case 2 -> '*';
             default -> throw new IllegalStateException(
                     "Unexpected value: " + mathOperation);
         };
-        sb.append(mathOperator);
-        int secondRND = RandomUtils.makeRandom(MAXRND);
-        sb.append(secondRND);
+        sb.append(mathOperator).append(" ");
+        secondNum = RandomUtils.makeRandom(MAXRND);
+        sb.append(secondNum);
         return sb.toString();
     }
 
@@ -65,13 +78,10 @@ public class CalculateGame {
      * @return answer int.
      */
     public static String makeSolution(final String quest) {
-        var strArr = quest.split(" ");
-        var firstInt = Integer.parseInt(strArr[0]);
-        var secondInt = Integer.parseInt(strArr[2]);
-        var result = switch (strArr[1]) {
-            case  "+" -> firstInt + secondInt;
-            case  "-" -> firstInt - secondInt;
-            case  "*" -> firstInt * secondInt;
+        var result = switch (mathOperator) {
+            case  '+' -> firstNum + secondNum;
+            case  '-' -> firstNum - secondNum;
+            case  '*' -> firstNum * secondNum;
             default -> throw new IllegalStateException(
                     "Unexpected value: " + quest);
         };
