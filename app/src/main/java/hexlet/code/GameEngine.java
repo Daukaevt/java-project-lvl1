@@ -45,12 +45,11 @@ public class GameEngine {
             if (SCANNER.hasNext()) {
                 input = SCANNER.next();
             }
-            var yep = answers[i];
-            if (input.equals(yep)) {
+            if (input.equals(answers[i])) {
                 System.out.println("Correct!");
                 count++;
             } else {
-                System.out.print("'" + input + NOPE + yep
+                System.out.print("'" + input + NOPE + answers[i]
                         + AGAIN + userNameStr + "!");
                 break;
             }
