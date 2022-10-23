@@ -71,7 +71,6 @@ public class CalculateGame {
         sb.append(secondNum);
         return sb.toString();
     }
-
     /**
      * correct answer.
      * @param quest game quest params.
@@ -87,5 +86,4 @@ public class CalculateGame {
         };
         return String.valueOf(result);
     }
-
 }
