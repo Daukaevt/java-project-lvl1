@@ -44,14 +44,14 @@ public class GameEngine {
             System.out.print("Question: " + questions[i] + "\nYour answer: ");
             if (SCANNER.hasNext()) {
                 input = SCANNER.next();
-                if (input.equals(answers[i])) {
-                    System.out.println("Correct!");
-                    count++;
-                } else {
-                    System.out.print("'" + input + NOPE + answers[i]
-                            + AGAIN + userNameStr + "!");
-                    break;
-                }
+            }
+            if (input.equals(answers[i])) {
+                System.out.println("Correct!");
+                count++;
+            } else {
+                System.out.print("'" + input + NOPE + answers[i]
+                        + AGAIN + userNameStr + "!");
+                break;
             }
         }
         if (count == GAMES) {
