@@ -43,7 +43,7 @@ public class GameEngine {
         for (int i = 0; i < GAMES; i++) {
             System.out.print("Question: " + questions[i] + "\nYour answer: ");
             if (SCANNER.hasNext()) {
-                var input = SCANNER.next();
+                input = SCANNER.next();
                 if (input.equals(answers[i])) {
                     System.out.println("Correct!");
                     count++;
