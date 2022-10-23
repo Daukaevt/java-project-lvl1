@@ -1,9 +1,12 @@
 package hexlet.code.games;
 
-import hexlet.code.GameEngine;
-import hexlet.code.utils.HelloUtils;
-import hexlet.code.utils.PrimeUtils;
 import hexlet.code.utils.RandomUtils;
+import hexlet.code.utils.PrimeUtils;
+import hexlet.code.utils.HelloUtils;
+import hexlet.code.GameEngine;
+
+
+
 
 public class IfPrimeGame {
     /**
