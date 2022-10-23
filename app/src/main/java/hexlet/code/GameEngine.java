@@ -37,11 +37,8 @@ public class GameEngine {
      * @param questions array of quests.
      * @param answers array of answers.
      */
-    public static void run(
-            final String userNameStr,
-            final String gameQuest,
-            final String[] questions,
-            final String[] answers) {
+    public static void run(final String userNameStr, final String gameQuest,
+            final String[] questions, final String[] answers) {
         System.out.println(gameQuest);
         for (int i = 0; i < GAMES; i++) {
             System.out.print("Question: " + questions[i] + "\nYour answer: ");
