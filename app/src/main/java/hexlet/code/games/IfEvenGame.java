@@ -23,20 +23,20 @@ public class IfEvenGame {
     /**
      * array of questions.
      */
-    static String[] questionArr = new String[GAMES];
+    private static final String[] QUESTIONARR = new String[GAMES];
     /**
      * array of answers.
      */
-    static String[] answerArr = new String[GAMES];
+    private static final String[] ANSWERARR = new String[GAMES];
     /**
      * start Even game logic.
      */
     public static void play() {
         String userName = HelloUtils.hello();
         for (int i = 0; i < GAMES; i++) {
-            questionArr[i] = String.valueOf(RandomUtils.makeRandom(MAXRND));
-            answerArr[i] = EvenUtils.isEven(Integer.parseInt(questionArr[i]));
+            QUESTIONARR[i] = String.valueOf(RandomUtils.makeRandom(MAXRND));
+            ANSWERARR[i] = EvenUtils.isEven(Integer.parseInt(QUESTIONARR[i]));
         }
-        GameEngine.run(userName, GAMECONDITION, questionArr, answerArr);
+        GameEngine.run(userName, GAMECONDITION, QUESTIONARR, ANSWERARR);
     }
 }
