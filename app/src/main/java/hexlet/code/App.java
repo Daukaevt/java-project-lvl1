@@ -2,10 +2,11 @@ package hexlet.code;
 
 
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
+import hexlet.code.games.CalculateGame;
+import hexlet.code.games.FillProgressionRangeGame;
+import hexlet.code.games.FindGCDGame;
+import hexlet.code.games.IfEvenGame;
+import hexlet.code.games.IfPrimeGame;
 
 import java.util.Scanner;
 
@@ -70,11 +71,11 @@ public class App {
         if (0 < intScan && intScan <= MAXID) {
             switch (intScan) {
                 case WELCOME -> Cli.haveName();
-                case EVEN -> Even.play();
-                case CALC -> Calc.play();
-                case GCD -> hexlet.code.games.GCD.play();
-                case PROGRESSION -> Progression.play();
-                case PRIME -> Prime.play();
+                case EVEN -> IfEvenGame.play();
+                case CALC -> CalculateGame.play();
+                case GCD -> FindGCDGame.play();
+                case PROGRESSION -> FillProgressionRangeGame.play();
+                case PRIME -> IfPrimeGame.play();
                 default -> {
                 }
             }
