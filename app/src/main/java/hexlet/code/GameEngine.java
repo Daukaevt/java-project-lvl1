@@ -39,23 +39,25 @@ public class GameEngine {
      */
     public static void run(final String userNameStr, final String gameQuest,
             final String[] questions, final String[] answers) {
+        var name = userNameStr;
         System.out.println(gameQuest);
         for (int i = 0; i < GAMES; i++) {
+            var answer = answers[i];
             System.out.print("Question: " + questions[i] + "\nYour answer: ");
             if (SCANNER.hasNext()) {
                 input = SCANNER.next();
             }
-            if (input.equals(answers[i])) {
+            if (input.equals(answer)) {
                 System.out.println("Correct!");
                 count++;
             } else {
-                System.out.print("'" + input + NOPE + answers[i]
-                        + AGAIN + userNameStr + "!");
+                System.out.print("'" + input + NOPE + answer
+                        + AGAIN + name + "!");
                 break;
             }
         }
         if (count == GAMES) {
-            System.out.println("Congratulations, " + userNameStr + "!");
+            System.out.println("Congratulations, " + name + "!");
         }
         SCANNER.close();
     }
