@@ -39,7 +39,6 @@ public class GameEngine {
      */
     public static void run(final String userNameStr, final String gameQuest,
             final String[] questions, final String[] answers) {
-        var name = userNameStr;
         System.out.println(gameQuest);
         for (int i = 0; i < GAMES; i++) {
             var answer = answers[i];
@@ -52,12 +51,12 @@ public class GameEngine {
                 count++;
             } else {
                 System.out.print("'" + input + NOPE + answer
-                        + AGAIN + name + "!");
+                        + AGAIN + userNameStr + "!");
                 break;
             }
         }
         if (count == GAMES) {
-            System.out.println("Congratulations, " + name + "!");
+            System.out.println("Congratulations, " + userNameStr + "!");
         }
         SCANNER.close();
     }
