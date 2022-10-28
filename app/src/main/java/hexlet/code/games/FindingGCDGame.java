@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.GCDUtils;
 import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
-import java.util.Arrays;
 
 public class FindingGCDGame {
     /**
@@ -36,7 +36,7 @@ public class FindingGCDGame {
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
             questionList[i] = makeExpression();
-            answerList[i] = makeSolution();
+            answerList[i] = GCDUtils.makeSolution(firstNum, secondNum);
         }
         GameEngine.run(userName, GAMECONDITION, questionList, answerList);
     }
@@ -53,23 +53,4 @@ public class FindingGCDGame {
         sb.append(secondNum);
         return sb.toString();
     }
-    /**
-     * make correct answer.
-     * @return solution string.
-     */
-    public static String makeSolution() {
-        int[] arr = {firstNum, secondNum};
-        Arrays.sort(arr);
-        var remainder = arr[0];
-        do {
-            if (remainder == 0) {
-                break;
-            }
-            remainder = arr[1] % arr[0];
-            arr[1] = arr[0];
-            arr[0] = remainder;
-        } while (remainder != 0);
-        return String.valueOf(arr[1]);
-    }
-
 }
