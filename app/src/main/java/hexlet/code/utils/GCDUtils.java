@@ -5,9 +5,11 @@ import java.util.Arrays;
 public class GCDUtils {
     /**
      * make correct answer.
+     * @param firstNum first number of the expression.
+     * @param secondNum second number of the expression.
      * @return solution string.
      */
-    public static String makeSolution(int firstNum, int secondNum) {
+    public static String makeSolution(final int firstNum, final int secondNum) {
         int[] arr = {firstNum, secondNum};
         Arrays.sort(arr);
         var remainder = arr[0];
