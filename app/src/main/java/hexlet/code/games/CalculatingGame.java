@@ -2,14 +2,11 @@ package hexlet.code.games;
 
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.CalcUtils;
 import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class CalculatingGame {
-    /**
-     * number of games.
-     */
-    public static final int GAMES = 3;
     /**
      * max random number.
      */
@@ -19,28 +16,14 @@ public class CalculatingGame {
      */
     public static final int MAXMATHOPERATIONS = 3;
     /**
+     * number of games.
+     */
+    public static final int GAMES = 3;
+    /**
      * game condition question.
      */
     private static final String GAMECONDITION =
             "What is the result of the expression?";
-    /**
-     * first expression number.
-     */
-    private static int firstNum;
-    /**
-     * expression math operator.
-     */
-    private static char mathOperator;
-    /**
-     * second expression number.
-     */
-    private static int secondNum;
-
-    /**
-     * result of expression.
-     */
-    private static int result;
-
     /**
      * start Calc game logic.
      */
@@ -49,40 +32,16 @@ public class CalculatingGame {
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            questionList[i] = makeExpression();
-            answerList[i] = String.valueOf(result);
+            int firstNum = RandomUtils.makeRandom(MAXRND);
+            int secondNum = RandomUtils.makeRandom(MAXRND);
+            int mathOperation = RandomUtils.makeRandom(MAXMATHOPERATIONS);
+            questionList[i] = CalcUtils.makeExpression(
+                    firstNum,
+                    mathOperation,
+                    secondNum);
+            answerList[i] = String.valueOf(CalcUtils.makeSolution());
         }
         GameEngine.run(userName, GAMECONDITION, questionList, answerList);
     }
-    /**
-     * Calc game random logic.
-     *
-     * @return question string.
-     */
-    public static String makeExpression() {
-        var sb = new StringBuilder();
-        firstNum = RandomUtils.makeRandom(MAXRND);
-        secondNum = RandomUtils.makeRandom(MAXRND);
-        sb.append(firstNum).append(" ");
-        int mathOperation = RandomUtils.makeRandom(MAXMATHOPERATIONS);
-        switch (mathOperation) {
-            case 0 -> {
-                mathOperator = '+';
-                result = firstNum + secondNum;
-            }
-            case 1 -> {
-                mathOperator = '-';
-                result = firstNum - secondNum;
-            }
-            case 2 -> {
-                mathOperator = '*';
-                result = firstNum * secondNum;
-            }
-            default -> throw new IllegalStateException(
-                    "Unexpected value: " + mathOperation);
-        }
-        sb.append(mathOperator).append(" ");
-        sb.append(secondNum);
-        return sb.toString();
-    }
+
 }
