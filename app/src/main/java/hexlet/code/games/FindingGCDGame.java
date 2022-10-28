@@ -5,7 +5,7 @@ import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 import java.util.Arrays;
 
-public class FindGCDGame {
+public class FindingGCDGame {
     /**
      * first expression number.
      */

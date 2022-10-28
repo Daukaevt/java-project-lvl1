@@ -5,7 +5,7 @@ import hexlet.code.GameEngine;
 import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
-public class CalculateGame {
+public class CalculatingGame {
     /**
      * number of games.
      */
@@ -37,6 +37,11 @@ public class CalculateGame {
     private static int secondNum;
 
     /**
+     * result of expression.
+     */
+    private static int result;
+
+    /**
      * start Calc game logic.
      */
     public static void play() {
@@ -45,7 +50,7 @@ public class CalculateGame {
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
             questionList[i] = makeExpression();
-            answerList[i] = makeSolution(questionList[i]);
+            answerList[i] = String.valueOf(result);
         }
         GameEngine.run(userName, GAMECONDITION, questionList, answerList);
     }
@@ -57,33 +62,27 @@ public class CalculateGame {
     public static String makeExpression() {
         var sb = new StringBuilder();
         firstNum = RandomUtils.makeRandom(MAXRND);
+        secondNum = RandomUtils.makeRandom(MAXRND);
         sb.append(firstNum).append(" ");
         int mathOperation = RandomUtils.makeRandom(MAXMATHOPERATIONS);
-        mathOperator = switch (mathOperation) {
-            case 0 -> '+';
-            case 1 -> '-';
-            case 2 -> '*';
+        switch (mathOperation) {
+            case 0 -> {
+                mathOperator = '+';
+                result = firstNum + secondNum;
+            }
+            case 1 -> {
+                mathOperator = '-';
+                result = firstNum - secondNum;
+            }
+            case 2 -> {
+                mathOperator = '*';
+                result = firstNum * secondNum;
+            }
             default -> throw new IllegalStateException(
                     "Unexpected value: " + mathOperation);
-        };
+        }
         sb.append(mathOperator).append(" ");
-        secondNum = RandomUtils.makeRandom(MAXRND);
         sb.append(secondNum);
         return sb.toString();
-    }
-    /**
-     * correct answer.
-     * @param quest game quest params.
-     * @return answer int.
-     */
-    public static String makeSolution(final String quest) {
-        var result = switch (mathOperator) {
-            case  '+' -> firstNum + secondNum;
-            case  '-' -> firstNum - secondNum;
-            case  '*' -> firstNum * secondNum;
-            default -> throw new IllegalStateException(
-                    "Unexpected value: " + quest);
-        };
-        return String.valueOf(result);
     }
 }

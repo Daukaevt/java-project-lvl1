@@ -6,7 +6,7 @@ import hexlet.code.utils.RandomUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FillProgressionRangeGame {
+public class FillingProgressionRangeGame {
     /**
      * number of games.
      */

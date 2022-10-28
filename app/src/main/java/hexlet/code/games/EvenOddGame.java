@@ -5,7 +5,7 @@ import hexlet.code.utils.EvenUtils;
 import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
-public class IfEvenGame {
+public class EvenOddGame {
     /**
      * number of games.
      */
