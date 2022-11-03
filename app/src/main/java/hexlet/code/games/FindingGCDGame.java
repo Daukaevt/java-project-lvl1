@@ -35,8 +35,8 @@ public class FindingGCDGame {
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            questionList[i] = makeExpression();
-            answerList[i] = NumberUtils.makeSolution(firstNum, secondNum);
+            questionList[i] = makeGCDExpression();
+            answerList[i] = NumberUtils.findGCD(firstNum, secondNum);
         }
         GameEngine.run(userName, GAMECONDITION, questionList, answerList);
     }
@@ -44,12 +44,12 @@ public class FindingGCDGame {
      * find gcd question params.
      * @return params string.
      */
-    private static String makeExpression() {
+    private static String makeGCDExpression() {
         var sb = new StringBuilder();
-        firstNum = RandomUtils.makeRandom(MAXRND);
+        firstNum = RandomUtils.makeRandom(0, MAXRND);
         sb.append(firstNum);
         sb.append(" ");
-        secondNum = RandomUtils.makeRandom(MAXRND);
+        secondNum = RandomUtils.makeRandom(0, MAXRND);
         sb.append(secondNum);
         return sb.toString();
     }

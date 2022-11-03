@@ -27,7 +27,7 @@ public class ChoosingIfPrimeGame {
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            questionList[i] = String.valueOf(RandomUtils.makeRandom(MAXRND));
+            questionList[i] = String.valueOf(RandomUtils.makeRandom(0, MAXRND));
             answerList[i] = NumberUtils
                     .isPrime(Integer.parseInt(questionList[i]));
         }

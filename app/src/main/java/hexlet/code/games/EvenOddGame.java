@@ -34,7 +34,7 @@ public class EvenOddGame {
     public static void play() {
         String userName = HelloUtils.hello();
         for (int i = 0; i < GAMES; i++) {
-            var rndNum = RandomUtils.makeRandom(MAXRND);
+            var rndNum = RandomUtils.makeRandom(0, MAXRND);
             QUESTIONARR[i] = String.valueOf(rndNum);
             ANSWERARR[i] = NumberUtils.isEven(rndNum);
         }

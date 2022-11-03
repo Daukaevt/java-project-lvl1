@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.HelloUtils;
+import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class FillingProgressionRangeGame {
@@ -19,9 +19,13 @@ public class FillingProgressionRangeGame {
      */
     public static final int MAXSTEP = 9;
     /**
+     * min progression line length.
+     */
+    public static final int MIN_LENGTH = 5;
+    /**
      * max progression line length.
      */
-    public static final int PR_LENGTH = 9;
+    public static final int MAX_LENGTH = 20;
     /**
      * game condition question.
      */
@@ -35,24 +39,39 @@ public class FillingProgressionRangeGame {
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            int firstRangeNum = RandomUtils.makeRandom(MAXRND);
-            int stepRange = RandomUtils.makeRandom(MAXSTEP) + 1;
-            int indexedRange = RandomUtils.makeRandom(PR_LENGTH);
-            questionList[i] = NumberUtils.makeExpression(
+            int firstRangeNum = RandomUtils.makeRandom(0, MAXRND);
+            int stepRange = RandomUtils.makeRandom(0, MAXSTEP) + 1;
+            int rangeSize = RandomUtils.makeRandom(MIN_LENGTH, MAX_LENGTH);
+            int missedNumIndex = RandomUtils.makeRandom(0, rangeSize - 1);
+            int[] questArr = NumberUtils.makeProgression(
                     firstRangeNum,
                     stepRange,
-                    indexedRange);
-            answerList[i] = String.valueOf(
-                    getResult(firstRangeNum, stepRange, indexedRange));
+                    rangeSize);
+            questionList[i] = makeQuest(questArr, missedNumIndex);
+            int result = questArr[missedNumIndex];
+            answerList[i] = String.valueOf(result);
         }
         GameEngine.run(userName, GAMECONDITION, questionList, answerList);
     }
 
-    private static int getResult(
-            final int firstRangeNum,
-            final int stepRange,
-            final int indexedRange) {
-        return firstRangeNum + stepRange * indexedRange;
+    /**
+     * rebuild progression array with missed number.
+     * @param questArr progression array.
+     * @param missedNumIndex number to find index.
+     * @return incomplete progression.
+     */
+    private static String makeQuest(
+            final int[] questArr,
+            final int missedNumIndex) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < questArr.length; i++) {
+            String num = i == missedNumIndex
+                    ? ".."
+                    : String.valueOf(questArr[i]);
+            String separator = i != questArr.length - 1 ? " " : "";
+            stringBuilder.append(num).append(separator);
+        }
+        return stringBuilder.toString();
     }
 }
 

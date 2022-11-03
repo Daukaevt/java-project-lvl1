@@ -35,10 +35,10 @@ public class CalculatingGame {
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            int firstNum = RandomUtils.makeRandom(MAXRND);
-            int secondNum = RandomUtils.makeRandom(MAXRND);
-            int mathOperation = RandomUtils.makeRandom(MAXMATHOPERATIONS);
-            questionList[i] = makeExpression(
+            int firstNum = RandomUtils.makeRandom(0, MAXRND);
+            int secondNum = RandomUtils.makeRandom(0, MAXRND);
+            int mathOperation = RandomUtils.makeRandom(0, MAXMATHOPERATIONS);
+            questionList[i] = makeMathExpression(
                     firstNum,
                     mathOperation,
                     secondNum);
@@ -55,7 +55,7 @@ public class CalculatingGame {
      * @param secondNum second number of the expression.
      * @return question string.
      */
-    public static String makeExpression(
+    public static String makeMathExpression(
             final int firstNum,
             final int mathOperation,
             final int secondNum) {

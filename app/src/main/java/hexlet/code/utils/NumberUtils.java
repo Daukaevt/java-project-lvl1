@@ -23,7 +23,7 @@ public class NumberUtils {
      * @param indexedRange index of missing number in progression.
      * @return missing number question params string.
      */
-    public static String makeExpression(int firstRangeNum, int stepRange, int indexedRange) {
+    public static String makeProgressionRange(int firstRangeNum, int stepRange, int indexedRange) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i <= PR_LENGTH; i++) {
             if (i == indexedRange) {
@@ -42,7 +42,7 @@ public class NumberUtils {
      * @param secondNum second number of the expression.
      * @return solution string.
      */
-    public static String makeSolution(final int firstNum, final int secondNum) {
+    public static String findGCD(final int firstNum, final int secondNum) {
         int[] arr = {firstNum, secondNum};
         Arrays.sort(arr);
         var remainder = arr[0];
@@ -72,6 +72,15 @@ public class NumberUtils {
             }
         }
         return "yes";
+    }
+    public static int[] makeProgression(int firstRangeNum, int stepRange, int rangeSize) {
+        // declares an Array of integers.
+        int[] progressionArr;
+        progressionArr = new int[rangeSize];
+        for (int i = 0; i < rangeSize; i++) {
+            progressionArr[i] = firstRangeNum + stepRange * i;
+        }
+        return progressionArr;
     }
 }
 
