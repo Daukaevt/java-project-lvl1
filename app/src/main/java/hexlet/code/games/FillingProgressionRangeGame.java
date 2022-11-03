@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
+import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.HelloUtils;
-import hexlet.code.utils.ProgressionUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class FillingProgressionRangeGame {
@@ -38,7 +38,7 @@ public class FillingProgressionRangeGame {
             int firstRangeNum = RandomUtils.makeRandom(MAXRND);
             int stepRange = RandomUtils.makeRandom(MAXSTEP) + 1;
             int indexedRange = RandomUtils.makeRandom(PR_LENGTH);
-            questionList[i] = ProgressionUtils.makeExpression(
+            questionList[i] = NumberUtils.makeExpression(
                     firstRangeNum,
                     stepRange,
                     indexedRange);

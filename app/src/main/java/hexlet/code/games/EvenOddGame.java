@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.EvenUtils;
+import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
@@ -36,7 +36,7 @@ public class EvenOddGame {
         for (int i = 0; i < GAMES; i++) {
             var rndNum = RandomUtils.makeRandom(MAXRND);
             QUESTIONARR[i] = String.valueOf(rndNum);
-            ANSWERARR[i] = EvenUtils.isEven(rndNum);
+            ANSWERARR[i] = NumberUtils.isEven(rndNum);
         }
         GameEngine.run(userName, GAMECONDITION, QUESTIONARR, ANSWERARR);
     }

@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.GCDUtils;
+import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
@@ -36,7 +36,7 @@ public class FindingGCDGame {
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
             questionList[i] = makeExpression();
-            answerList[i] = GCDUtils.makeSolution(firstNum, secondNum);
+            answerList[i] = NumberUtils.makeSolution(firstNum, secondNum);
         }
         GameEngine.run(userName, GAMECONDITION, questionList, answerList);
     }

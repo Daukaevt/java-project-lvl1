@@ -2,11 +2,14 @@ package hexlet.code.games;
 
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.CalcUtils;
 import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class CalculatingGame {
+    /**
+     * result of expression.
+     */
+    private static int result;
     /**
      * max random number.
      */
@@ -35,13 +38,49 @@ public class CalculatingGame {
             int firstNum = RandomUtils.makeRandom(MAXRND);
             int secondNum = RandomUtils.makeRandom(MAXRND);
             int mathOperation = RandomUtils.makeRandom(MAXMATHOPERATIONS);
-            questionList[i] = CalcUtils.makeExpression(
+            questionList[i] = makeExpression(
                     firstNum,
                     mathOperation,
                     secondNum);
-            answerList[i] = String.valueOf(CalcUtils.makeSolution());
+            answerList[i] = String.valueOf(result);
         }
         GameEngine.run(userName, GAMECONDITION, questionList, answerList);
+    }
+
+
+    /**
+     * Calc game make expression logic.
+     * @param firstNum first number of the expression.
+     * @param mathOperation expression math operator id.
+     * @param secondNum second number of the expression.
+     * @return question string.
+     */
+    public static String makeExpression(
+            final int firstNum,
+            final int mathOperation,
+            final int secondNum) {
+        var sb = new StringBuilder();
+        sb.append(firstNum).append(" ");
+        char mathOperator;
+        switch (mathOperation) {
+            case 0 -> {
+                mathOperator = '+';
+                result = firstNum + secondNum;
+            }
+            case 1 -> {
+                mathOperator = '-';
+                result = firstNum - secondNum;
+            }
+            case 2 -> {
+                mathOperator = '*';
+                result = firstNum * secondNum;
+            }
+            default -> throw new IllegalStateException(
+                    "Unexpected value: " + mathOperation);
+        }
+        sb.append(mathOperator).append(" ");
+        sb.append(secondNum);
+        return sb.toString();
     }
 
 }
