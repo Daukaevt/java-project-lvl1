@@ -34,7 +34,10 @@ public class GameEngine {
      */
     private static final String WELCOME = "Welcome to the Brain Games!"
             + "\nMay I have your name? ";
-    static String name = null;
+    /**
+     * username.
+     */
+    private static String name = null;
     /**
      * engine quest building method.
      * @param gameQuest game conditions.
