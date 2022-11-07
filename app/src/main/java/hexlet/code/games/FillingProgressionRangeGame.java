@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.RandomUtils;
 
@@ -35,7 +34,6 @@ public class FillingProgressionRangeGame {
      * start Progression game logic.
      */
     public static void play() {
-        String userName = HelloUtils.hello();
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
@@ -51,7 +49,7 @@ public class FillingProgressionRangeGame {
             int result = questArr[missedNumIndex];
             answerList[i] = String.valueOf(result);
         }
-        GameEngine.run(userName, GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionList, answerList);
     }
 
     /**

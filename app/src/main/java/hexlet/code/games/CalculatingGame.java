@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class CalculatingGame {
@@ -31,7 +30,6 @@ public class CalculatingGame {
      * start Calc game logic.
      */
     public static void play() {
-        String userName = HelloUtils.hello();
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
@@ -44,7 +42,7 @@ public class CalculatingGame {
                     secondNum);
             answerList[i] = String.valueOf(result);
         }
-        GameEngine.run(userName, GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionList, answerList);
     }
 
 

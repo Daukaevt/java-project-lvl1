@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.RandomUtils;
-import hexlet.code.utils.HelloUtils;
 import hexlet.code.GameEngine;
 
 public class ChoosingIfPrimeGame {
@@ -23,7 +22,6 @@ public class ChoosingIfPrimeGame {
      * start Prime game logic.
      */
     public static void play() {
-        String userName = HelloUtils.hello();
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
@@ -31,7 +29,7 @@ public class ChoosingIfPrimeGame {
             answerList[i] = NumberUtils
                     .isPrime(Integer.parseInt(questionList[i]));
         }
-        GameEngine.run(userName, GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionList, answerList);
     }
 }
 

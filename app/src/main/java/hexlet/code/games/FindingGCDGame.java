@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.GameEngine;
 import hexlet.code.utils.NumberUtils;
-import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class FindingGCDGame {
@@ -31,14 +30,13 @@ public class FindingGCDGame {
      * start GCD game logic.
      */
     public static void play() {
-        String userName = HelloUtils.hello();
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
             questionList[i] = makeGCDExpression();
             answerList[i] = NumberUtils.findGCD(firstNum, secondNum);
         }
-        GameEngine.run(userName, GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionList, answerList);
     }
     /**
      * find gcd question params.

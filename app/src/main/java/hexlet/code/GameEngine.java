@@ -29,16 +29,25 @@ public class GameEngine {
      * try again remark.
      */
     private static final String AGAIN = "'\nLet's try again, ";
-
+    /**
+     * welcome.
+     */
+    private static final String WELCOME = "Welcome to the Brain Games!"
+            + "\nMay I have your name? ";
+    static String name = null;
     /**
      * engine quest building method.
-     * @param userNameStr username.
      * @param gameQuest game conditions.
      * @param questions array of quests.
      * @param answers array of answers.
      */
-    public static void run(final String userNameStr, final String gameQuest,
+    public static void run(final String gameQuest,
             final String[] questions, final String[] answers) {
+        System.out.print(WELCOME);
+        if (SCANNER.hasNext()) {
+            name = SCANNER.next();
+            System.out.println("Hello, " + name + "!");
+        }
         System.out.println(gameQuest);
         for (int i = 0; i < GAMES; i++) {
             var answer = answers[i];
@@ -51,12 +60,12 @@ public class GameEngine {
                 count++;
             } else {
                 System.out.print("'" + input + NOPE + answer
-                        + AGAIN + userNameStr + "!");
+                        + AGAIN + name + "!");
                 break;
             }
         }
         if (count == GAMES) {
-            System.out.println("Congratulations, " + userNameStr + "!");
+            System.out.println("Congratulations, " + name + "!");
         }
         SCANNER.close();
     }

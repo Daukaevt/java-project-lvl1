@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.GameEngine;
 import hexlet.code.utils.NumberUtils;
-import hexlet.code.utils.HelloUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class EvenOddGame {
@@ -32,12 +31,11 @@ public class EvenOddGame {
      * start Even game logic.
      */
     public static void play() {
-        String userName = HelloUtils.hello();
         for (int i = 0; i < GAMES; i++) {
             var rndNum = RandomUtils.makeRandom(0, MAXRND);
             QUESTIONARR[i] = String.valueOf(rndNum);
             ANSWERARR[i] = NumberUtils.isEven(rndNum);
         }
-        GameEngine.run(userName, GAMECONDITION, QUESTIONARR, ANSWERARR);
+        GameEngine.run(GAMECONDITION, QUESTIONARR, ANSWERARR);
     }
 }
