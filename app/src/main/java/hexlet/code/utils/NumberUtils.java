@@ -18,7 +18,7 @@ public class NumberUtils {
      * @param secondNum second number of the expression.
      * @return solution string.
      */
-    public static String findGCD(final int firstNum, final int secondNum) {
+    public static int findGCD(final int firstNum, final int secondNum) {
         int[] arr = {firstNum, secondNum};
         Arrays.sort(arr);
         var remainder = arr[0];
@@ -30,7 +30,7 @@ public class NumberUtils {
             arr[1] = arr[0];
             arr[0] = remainder;
         } while (remainder != 0);
-        return String.valueOf(arr[1]);
+        return arr[1];
     }
     /**
      * it gives correct answer if given number prime or not.
