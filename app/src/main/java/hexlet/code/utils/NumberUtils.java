@@ -37,17 +37,17 @@ public class NumberUtils {
      * @param quest given number.
      * @return "yes" or "no".
      */
-    public static String isPrime(
+    public static boolean isPrime(
             final int quest) {
         if (quest < 2) {
-            return "no";
+            return false;
         }
         for (int i = 2; i < quest; i++) {
             if (quest % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
     public static int[] makeProgression(int firstRangeNum, int stepRange, int rangeSize) {
         // declares an Array of integers.
