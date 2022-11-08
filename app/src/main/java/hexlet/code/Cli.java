@@ -14,12 +14,10 @@ public class Cli {
      * ask username.
      */
     public static void haveName() {
-        String name = null;
         Scanner scanner = new Scanner(System.in);
         System.out.print(WELCOME);
         if (scanner.hasNext()) {
-            name = scanner.next();
-            System.out.println("Hello, " + name + "!");
+            System.out.println("Hello, " + scanner.next() + "!");
         }
     }
 }
