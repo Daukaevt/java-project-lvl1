@@ -8,8 +8,8 @@ public class NumberUtils {
      * @param num given number.
      * @return 'yes' or 'no' answer.
      */
-    public static String isEven(final int num) {
-        return num % 2 == 0 ? "yes" : "no";
+    public static boolean isEven(final int num) {
+        return num % 2 == 0 ? true : false;
     }
 
     /**
