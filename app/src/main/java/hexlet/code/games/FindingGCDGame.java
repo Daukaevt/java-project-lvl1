@@ -34,7 +34,7 @@ public class FindingGCDGame {
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
             questionList[i] = makeGCDExpression();
-            answerList[i] = NumberUtils.findGCD(firstNum, secondNum);
+            answerList[i] = String.valueOf(NumberUtils.findGCD(firstNum, secondNum));
         }
         GameEngine.run(GAMECONDITION, questionList, answerList);
     }
