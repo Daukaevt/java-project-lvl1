@@ -35,10 +35,6 @@ public class GameEngine {
     private static final String WELCOME = "Welcome to the Brain Games!"
             + "\nMay I have your name? ";
     /**
-     * username.
-     */
-    private static String name = null;
-    /**
      * engine quest building method.
      * @param gameQuest game conditions.
      * @param questions array of quests.
@@ -46,6 +42,7 @@ public class GameEngine {
      */
     public static void run(final String gameQuest,
             final String[] questions, final String[] answers) {
+        String name = null;
         System.out.print(WELCOME);
         if (SCANNER.hasNext()) {
             name = SCANNER.next();
@@ -53,16 +50,15 @@ public class GameEngine {
         }
         System.out.println(gameQuest);
         for (int i = 0; i < GAMES; i++) {
-            var answer = answers[i];
             System.out.print("Question: " + questions[i] + "\nYour answer: ");
             if (SCANNER.hasNext()) {
                 input = SCANNER.next();
             }
-            if (input.equals(answer)) {
+            if (input.equals(answers[i])) {
                 System.out.println("Correct!");
                 count++;
             } else {
-                System.out.print("'" + input + NOPE + answer
+                System.out.print("'" + input + NOPE + answers[i]
                         + AGAIN + name + "!");
                 break;
             }
