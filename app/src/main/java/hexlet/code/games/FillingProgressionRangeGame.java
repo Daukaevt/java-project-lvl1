@@ -34,8 +34,8 @@ public class FillingProgressionRangeGame {
      * start Progression game logic.
      */
     public static void play() {
-        String[] questionList = new String[GAMES];
-        String[] answerList = new String[GAMES];
+        String[] questionArray = new String[GAMES];
+        String[] answerArray = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
             int firstRangeNum = RandomUtils.makeRandom(0, MAXRND);
             int stepRange = RandomUtils.makeRandom(0, MAXSTEP) + 1;
@@ -45,11 +45,11 @@ public class FillingProgressionRangeGame {
                     firstRangeNum,
                     stepRange,
                     rangeSize);
-            questionList[i] = makeQuestion(questArr, missedNumIndex);
+            questionArray[i] = makeQuestion(questArr, missedNumIndex);
             int result = questArr[missedNumIndex];
-            answerList[i] = String.valueOf(result);
+            answerArray[i] = String.valueOf(result);
         }
-        GameEngine.run(GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionArray, answerArray);
     }
 
     /**
