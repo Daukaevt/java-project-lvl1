@@ -30,25 +30,25 @@ public class FindingGCDGame {
      * start GCD game logic.
      */
     public static void play() {
-        String[] questionList = new String[GAMES];
-        String[] answerList = new String[GAMES];
+        String[] questionArray = new String[GAMES];
+        String[] answerArray = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            questionList[i] = makeGCDExpression();
-            answerList[i] = String.valueOf(NumberUtils.findGCD(firstNum, secondNum));
+            questionArray[i] = makeGCDExpression();
+            answerArray[i] = String.valueOf(NumberUtils.findGCD(firstNum, secondNum));
         }
-        GameEngine.run(GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionArray, answerArray);
     }
     /**
      * find gcd question params.
      * @return params string.
      */
     private static String makeGCDExpression() {
-        var sb = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         firstNum = RandomUtils.makeRandom(0, MAXRND);
-        sb.append(firstNum);
-        sb.append(" ");
+        stringBuilder.append(firstNum);
+        stringBuilder.append(" ");
         secondNum = RandomUtils.makeRandom(0, MAXRND);
-        sb.append(secondNum);
-        return sb.toString();
+        stringBuilder.append(secondNum);
+        return stringBuilder.toString();
     }
 }
