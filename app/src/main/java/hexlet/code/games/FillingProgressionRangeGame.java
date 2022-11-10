@@ -45,7 +45,7 @@ public class FillingProgressionRangeGame {
                     firstRangeNum,
                     stepRange,
                     rangeSize);
-            questionList[i] = makeQuest(questArr, missedNumIndex);
+            questionList[i] = makeQuestion(questArr, missedNumIndex);
             int result = questArr[missedNumIndex];
             answerList[i] = String.valueOf(result);
         }
@@ -58,7 +58,7 @@ public class FillingProgressionRangeGame {
      * @param missedNumIndex number to find index.
      * @return incomplete progression.
      */
-    private static String makeQuest(
+    private static String makeQuestion(
             final int[] questArr,
             final int missedNumIndex) {
         StringBuilder stringBuilder = new StringBuilder();
