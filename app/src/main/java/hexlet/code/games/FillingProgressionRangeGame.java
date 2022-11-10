@@ -54,19 +54,19 @@ public class FillingProgressionRangeGame {
 
     /**
      * rebuild progression array with missed number.
-     * @param questArr progression array.
-     * @param missedNumIndex number to find index.
+     * @param questionArray progression array.
+     * @param missedNumberIndex number to find index.
      * @return incomplete progression.
      */
     private static String makeQuestion(
-            final int[] questArr,
-            final int missedNumIndex) {
+            final int[] questionArray,
+            final int missedNumberIndex) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < questArr.length; i++) {
-            String num = i == missedNumIndex
+        for (int i = 0; i < questionArray.length; i++) {
+            String num = i == missedNumberIndex
                     ? ".."
-                    : String.valueOf(questArr[i]);
-            String separator = i != questArr.length - 1 ? " " : "";
+                    : String.valueOf(questionArray[i]);
+            String separator = i != questionArray.length - 1 ? " " : "";
             stringBuilder.append(num).append(separator);
         }
         return stringBuilder.toString();
