@@ -32,9 +32,9 @@ public class EvenOddGame {
      */
     public static void play() {
         for (int i = 0; i < GAMES; i++) {
-            var rndNum = RandomUtils.makeRandom(0, MAXRND);
-            QUESTIONARR[i] = String.valueOf(rndNum);
-            ANSWERARR[i] = NumberUtils.isEven(rndNum) ? "yes" : "no";
+            var randomNumber = RandomUtils.makeRandom(0, MAXRND);
+            QUESTIONARR[i] = String.valueOf(randomNumber);
+            ANSWERARR[i] = NumberUtils.isEven(randomNumber) ? "yes" : "no";
         }
         GameEngine.run(GAMECONDITION, QUESTIONARR, ANSWERARR);
     }
