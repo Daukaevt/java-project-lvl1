@@ -22,14 +22,15 @@ public class ChoosingIfPrimeGame {
      * start Prime game logic.
      */
     public static void play() {
-        String[] questionList = new String[GAMES];
-        String[] answerList = new String[GAMES];
+        String[] questionArray = new String[GAMES];
+        String[] answerArray = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            questionList[i] = String.valueOf(RandomUtils.makeRandom(0, MAXRND));
-            answerList[i] = NumberUtils
-                    .isPrime(Integer.parseInt(questionList[i])) ? "yes" : "no";
+            questionArray[i] = String
+                    .valueOf(RandomUtils.makeRandom(0, MAXRND));
+            answerArray[i] = NumberUtils
+                    .isPrime(Integer.parseInt(questionArray[i])) ? "yes" : "no";
         }
-        GameEngine.run(GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionArray, answerArray);
     }
 }
 
