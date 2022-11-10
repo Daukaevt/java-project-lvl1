@@ -33,13 +33,13 @@ public class CalculatingGame {
         String[] questionList = new String[GAMES];
         String[] answerList = new String[GAMES];
         for (int i = 0; i < GAMES; i++) {
-            int firstNum = RandomUtils.makeRandom(0, MAXRND);
-            int secondNum = RandomUtils.makeRandom(0, MAXRND);
+            int firstNumber = RandomUtils.makeRandom(0, MAXRND);
+            int secondNumber = RandomUtils.makeRandom(0, MAXRND);
             int mathOperation = RandomUtils.makeRandom(0, MAXMATHOPERATIONS);
             questionList[i] = makeMathExpression(
-                    firstNum,
+                    firstNumber,
                     mathOperation,
-                    secondNum);
+                    secondNumber);
             answerList[i] = String.valueOf(result);
         }
         GameEngine.run(GAMECONDITION, questionList, answerList);
@@ -48,36 +48,36 @@ public class CalculatingGame {
 
     /**
      * Calc game make expression logic.
-     * @param firstNum first number of the expression.
+     * @param firstNumber first number of the expression.
      * @param mathOperation expression math operator id.
-     * @param secondNum second number of the expression.
+     * @param secondNumber second number of the expression.
      * @return question string.
      */
     public static String makeMathExpression(
-            final int firstNum,
+            final int firstNumber,
             final int mathOperation,
-            final int secondNum) {
+            final int secondNumber) {
         var sb = new StringBuilder();
-        sb.append(firstNum).append(" ");
+        sb.append(firstNumber).append(" ");
         char mathOperator;
         switch (mathOperation) {
             case 0 -> {
                 mathOperator = '+';
-                result = firstNum + secondNum;
+                result = firstNumber + secondNumber;
             }
             case 1 -> {
                 mathOperator = '-';
-                result = firstNum - secondNum;
+                result = firstNumber - secondNumber;
             }
             case 2 -> {
                 mathOperator = '*';
-                result = firstNum * secondNum;
+                result = firstNumber * secondNumber;
             }
             default -> throw new IllegalStateException(
                     "Unexpected value: " + mathOperation);
         }
         sb.append(mathOperator).append(" ");
-        sb.append(secondNum);
+        sb.append(secondNumber);
         return sb.toString();
     }
 
