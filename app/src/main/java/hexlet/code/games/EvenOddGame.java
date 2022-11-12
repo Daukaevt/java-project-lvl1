@@ -34,8 +34,16 @@ public class EvenOddGame {
         for (int i = 0; i < GAMES; i++) {
             var randomNumber = RandomUtils.makeRandom(0, MAXRND);
             QUESTIONARR[i] = String.valueOf(randomNumber);
-            ANSWERARR[i] = NumberUtils.isEven(randomNumber) ? "yes" : "no";
+            ANSWERARR[i] = isEven(randomNumber) ? "yes" : "no";
         }
         GameEngine.run(GAMECONDITION, QUESTIONARR, ANSWERARR);
+    }
+    /**
+     * check if given nuber is even.
+     * @param num given number.
+     * @return 'yes' or 'no' answer.
+     */
+    public static boolean isEven(final int num) {
+        return num % 2 == 0 ? true : false;
     }
 }
