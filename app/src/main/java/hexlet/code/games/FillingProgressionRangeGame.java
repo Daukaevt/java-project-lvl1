@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.GameEngine;
 import hexlet.code.utils.RandomUtils;
+import java.util.HashMap;
 
 public class FillingProgressionRangeGame {
     /**
@@ -33,8 +34,7 @@ public class FillingProgressionRangeGame {
      * start Progression game logic.
      */
     public static void play() {
-        String[] questionArray = new String[GAMES];
-        String[] answerArray = new String[GAMES];
+        HashMap<String, String> questionsAndAnswers = new HashMap<>();
         for (int i = 0; i < GAMES; i++) {
             int firstRangeNum = RandomUtils.makeRandom(0, MAXRND);
             int stepRange = RandomUtils.makeRandom(0, MAXSTEP) + 1;
@@ -44,13 +44,13 @@ public class FillingProgressionRangeGame {
                     firstRangeNum,
                     stepRange,
                     rangeSize);
-            questionArray[i] = makeQuestion(questArr, missedNumIndex);
             int result = questArr[missedNumIndex];
-            answerArray[i] = String.valueOf(result);
+            questionsAndAnswers.put(
+                    makeQuestion(questArr, missedNumIndex),
+                    String.valueOf(result));
         }
-        GameEngine.run(GAMECONDITION, questionArray, answerArray);
+        GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
-
     /**
      * rebuild progression array with missed number.
      * @param questionArray progression array.

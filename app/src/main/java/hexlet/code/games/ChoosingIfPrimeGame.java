@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.utils.RandomUtils;
 import hexlet.code.GameEngine;
+import java.util.HashMap;
 
 public class ChoosingIfPrimeGame {
     /**
@@ -21,14 +22,14 @@ public class ChoosingIfPrimeGame {
      * start Prime game logic.
      */
     public static void play() {
-        String[] questionArray = new String[GAMES];
-        String[] answerArray = new String[GAMES];
+        HashMap<String, String> questionsAndAnswers = new HashMap<>();
         for (int i = 0; i < GAMES; i++) {
-            questionArray[i] = String
-                    .valueOf(RandomUtils.makeRandom(0, MAXRND));
-            answerArray[i] = isPrime(Integer.parseInt(questionArray[i])) ? "yes" : "no";
+            var randomNumber = RandomUtils.makeRandom(0, MAXRND);
+            questionsAndAnswers.put(
+                    String.valueOf(randomNumber),
+                    isPrime(randomNumber) ? "yes" : "no");
         }
-        GameEngine.run(GAMECONDITION, questionArray, answerArray);
+        GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
     /**
      * it gives correct answer if given number prime or not.

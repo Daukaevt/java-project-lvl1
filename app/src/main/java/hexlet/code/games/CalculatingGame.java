@@ -3,6 +3,7 @@ package hexlet.code.games;
 
 import hexlet.code.GameEngine;
 import hexlet.code.utils.RandomUtils;
+import java.util.HashMap;
 
 public class CalculatingGame {
     /**
@@ -30,19 +31,18 @@ public class CalculatingGame {
      * start Calc game logic.
      */
     public static void play() {
-        String[] questionList = new String[GAMES];
-        String[] answerList = new String[GAMES];
+        HashMap<String, String> questionsAndAnswers = new HashMap<>();
         for (int i = 0; i < GAMES; i++) {
             int firstNumber = RandomUtils.makeRandom(0, MAXRND);
             int secondNumber = RandomUtils.makeRandom(0, MAXRND);
             int mathOperation = RandomUtils.makeRandom(0, MAXMATHOPERATIONS);
-            questionList[i] = makeMathExpression(
+            questionsAndAnswers.put(makeMathExpression(
                     firstNumber,
                     mathOperation,
-                    secondNumber);
-            answerList[i] = String.valueOf(result);
+                    secondNumber),
+                    String.valueOf(result));
         }
-        GameEngine.run(GAMECONDITION, questionList, answerList);
+        GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
     /**
      * Calc game make expression logic.

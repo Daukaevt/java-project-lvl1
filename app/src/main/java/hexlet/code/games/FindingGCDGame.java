@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.GameEngine;
 import hexlet.code.utils.RandomUtils;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class FindingGCDGame {
     /**
@@ -30,13 +31,13 @@ public class FindingGCDGame {
      * start GCD game logic.
      */
     public static void play() {
-        String[] questionArray = new String[GAMES];
-        String[] answerArray = new String[GAMES];
+        HashMap<String, String> questionsAndAnswers = new HashMap<>();
         for (int i = 0; i < GAMES; i++) {
-            questionArray[i] = makeGCDExpression();
-            answerArray[i] = String.valueOf(findGCD(firstNum, secondNum));
+            questionsAndAnswers.put(
+                    makeGCDExpression(),
+                    String.valueOf(findGCD(firstNum, secondNum)));
         }
-        GameEngine.run(GAMECONDITION, questionArray, answerArray);
+        GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
     /**
      * find gcd question params.
