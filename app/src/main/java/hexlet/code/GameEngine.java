@@ -1,6 +1,7 @@
 package hexlet.code;
 
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class GameEngine {
@@ -33,11 +34,11 @@ public class GameEngine {
     /**
      * engine quest building method.
      * @param gameQuest game conditions.
-     * @param questions array of quests.
-     * @param answers array of answers.
+     * @param questionsAndAnswers map of game questions & answers.
      */
-    public static void run(final String gameQuest,
-            final String[] questions, final String[] answers) {
+    public static void run(
+            final String gameQuest,
+            final HashMap<String, String> questionsAndAnswers) {
         String name = null;
         System.out.print(WELCOME);
         if (SCANNER.hasNext()) {
@@ -45,21 +46,21 @@ public class GameEngine {
             System.out.println("Hello, " + name + "!");
         }
         System.out.println(gameQuest);
-        for (int i = 0; i < questions.length; i++) {
-            System.out.print("Question: " + questions[i] + "\nYour answer: ");
+        for (Map.Entry<String, String> entry: questionsAndAnswers.entrySet()) {
+            System.out.print("Question: " + entry.getKey() + "\nYour answer: ");
             if (SCANNER.hasNext()) {
                 input = SCANNER.next();
             }
-            if (input.equals(answers[i])) {
+            if (input.equals(entry.getValue())) {
                 System.out.println("Correct!");
                 count++;
             } else {
-                System.out.print("'" + input + NOPE + answers[i]
+                System.out.print("'" + input + NOPE + entry.getValue()
                         + AGAIN + name + "!");
                 break;
             }
         }
-        if (count == questions.length) {
+        if (count == questionsAndAnswers.size()) {
             System.out.println("Congratulations, " + name + "!");
         }
         SCANNER.close();
