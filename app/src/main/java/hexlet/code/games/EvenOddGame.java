@@ -31,12 +31,14 @@ public class EvenOddGame {
      * start Even game logic.
      */
     public static void play() {
+        int i = 0;
         HashMap<String, String> questionsAndAnswers = new HashMap<>();
-        for (int i = 0; i < GAMES; i++) {
+        while (i < GAMES) {
             var randomNumber = RandomUtils.makeRandom(0, MAXRND);
             questionsAndAnswers.put(
                     String.valueOf(randomNumber),
                     isEven(randomNumber) ? "yes" : "no");
+            i++;
         }
         GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
