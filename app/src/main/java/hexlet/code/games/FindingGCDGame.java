@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.GameEngine;
 import hexlet.code.utils.RandomUtils;
-
 import java.util.Arrays;
 
 public class FindingGCDGame {
@@ -54,12 +53,12 @@ public class FindingGCDGame {
     }
     /**
      * make correct answer.
-     * @param firstNum first number of the expression.
-     * @param secondNum second number of the expression.
+     * @param firstNumber first number of the expression.
+     * @param secondNumber second number of the expression.
      * @return solution string.
      */
-    public static int findGCD(final int firstNum, final int secondNum) {
-        int[] arr = {firstNum, secondNum};
+    public static int findGCD(final int firstNumber, final int secondNumber) {
+        int[] arr = {firstNumber, secondNumber};
         Arrays.sort(arr);
         var remainder = arr[0];
         do {
