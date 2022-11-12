@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class FillingProgressionRangeGame {
@@ -41,7 +40,7 @@ public class FillingProgressionRangeGame {
             int stepRange = RandomUtils.makeRandom(0, MAXSTEP) + 1;
             int rangeSize = RandomUtils.makeRandom(MIN_LENGTH, MAX_LENGTH);
             int missedNumIndex = RandomUtils.makeRandom(0, rangeSize - 1);
-            int[] questArr = NumberUtils.makeProgression(
+            int[] questArr = makeProgression(
                     firstRangeNum,
                     stepRange,
                     rangeSize);
@@ -70,6 +69,25 @@ public class FillingProgressionRangeGame {
             stringBuilder.append(num).append(separator);
         }
         return stringBuilder.toString();
+    }
+
+    /**
+     * make progression range of numbers.
+     * @param firstRangeNum number wich starts progression.
+     * @param stepRange difference between two closest numbers in range.
+     * @param rangeSize progression range size.
+     * @return progression array.
+     */
+    public static int[] makeProgression(
+            final int firstRangeNum,
+            final int stepRange,
+            final int rangeSize) {
+        int[] progressionArr;
+        progressionArr = new int[rangeSize];
+        for (int i = 0; i < rangeSize; i++) {
+            progressionArr[i] = firstRangeNum + stepRange * i;
+        }
+        return progressionArr;
     }
 }
 
