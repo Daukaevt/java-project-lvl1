@@ -9,7 +9,7 @@ public class CalculatingGame {
     /**
      * result of expression.
      */
-    private static int result;
+    private static int result; //так, зачем глобальную переменную - то? делаешь локальную, и геттеры с сеттерами))
     /**
      * max random number.
      */
