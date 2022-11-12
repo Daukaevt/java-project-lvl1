@@ -44,8 +44,6 @@ public class CalculatingGame {
         }
         GameEngine.run(GAMECONDITION, questionList, answerList);
     }
-
-
     /**
      * Calc game make expression logic.
      * @param firstNumber first number of the expression.
@@ -56,7 +54,8 @@ public class CalculatingGame {
     public static String makeMathExpression(
             final int firstNumber,
             final int mathOperation,
-            final int secondNumber) {
+            final int secondNumber
+    ) {
         var sb = new StringBuilder();
         sb.append(firstNumber).append(" ");
         char mathOperator;
@@ -80,5 +79,4 @@ public class CalculatingGame {
         sb.append(secondNumber);
         return sb.toString();
     }
-
 }

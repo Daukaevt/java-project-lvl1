@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.RandomUtils;
 import hexlet.code.GameEngine;
 

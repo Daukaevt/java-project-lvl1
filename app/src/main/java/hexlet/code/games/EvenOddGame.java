@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.GameEngine;
-import hexlet.code.utils.NumberUtils;
 import hexlet.code.utils.RandomUtils;
 
 public class EvenOddGame {
@@ -44,6 +43,6 @@ public class EvenOddGame {
      * @return 'yes' or 'no' answer.
      */
     public static boolean isEven(final int num) {
-        return num % 2 == 0 ? true : false;
+        return num % 2 == 0;
     }
 }
