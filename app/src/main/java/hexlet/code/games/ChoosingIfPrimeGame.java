@@ -27,10 +27,26 @@ public class ChoosingIfPrimeGame {
         for (int i = 0; i < GAMES; i++) {
             questionArray[i] = String
                     .valueOf(RandomUtils.makeRandom(0, MAXRND));
-            answerArray[i] = NumberUtils
-                    .isPrime(Integer.parseInt(questionArray[i])) ? "yes" : "no";
+            answerArray[i] = isPrime(Integer.parseInt(questionArray[i])) ? "yes" : "no";
         }
         GameEngine.run(GAMECONDITION, questionArray, answerArray);
+    }
+    /**
+     * it gives correct answer if given number prime or not.
+     * @param quest given number.
+     * @return "yes" or "no".
+     */
+    public static boolean isPrime(
+            final int quest) {
+        if (quest < 2) {
+            return false;
+        }
+        for (int i = 2; i < quest; i++) {
+            if (quest % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
