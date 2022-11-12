@@ -5,10 +5,6 @@ import java.util.Scanner;
 
 public class GameEngine {
     /**
-     * number of games.
-     */
-    public static final int GAMES = 3;
-    /**
      * quest wins count.
      */
     private static int count = 0;
@@ -49,7 +45,7 @@ public class GameEngine {
             System.out.println("Hello, " + name + "!");
         }
         System.out.println(gameQuest);
-        for (int i = 0; i < GAMES; i++) {
+        for (int i = 0; i < questions.length; i++) {
             System.out.print("Question: " + questions[i] + "\nYour answer: ");
             if (SCANNER.hasNext()) {
                 input = SCANNER.next();
@@ -63,7 +59,7 @@ public class GameEngine {
                 break;
             }
         }
-        if (count == GAMES) {
+        if (count == questions.length) {
             System.out.println("Congratulations, " + name + "!");
         }
         SCANNER.close();
