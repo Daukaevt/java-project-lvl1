@@ -12,10 +12,6 @@ import java.util.Scanner;
 
 public class App {
     /**
-     * max game id.
-     */
-    private static final int MAXID = 6;
-    /**
      * Even game id.
      */
     private static final int WELCOME = 1;
@@ -68,16 +64,15 @@ public class App {
         }
         intScan = sc.nextInt();
         System.out.println("Your choice: " + intScan);
-        if (0 < intScan && intScan <= MAXID) {
-            switch (intScan) {
-                case WELCOME -> Cli.haveName();
-                case EVEN -> EvenOddGame.play();
-                case CALC -> CalculatingGame.play();
-                case GCD -> FindingGCDGame.play();
-                case PROGRESSION -> FillingProgressionRangeGame.play();
-                case PRIME -> ChoosingIfPrimeGame.play();
-                default -> {
-                }
+        switch (intScan) {
+            case WELCOME -> Cli.haveName();
+            case EVEN -> EvenOddGame.play();
+            case CALC -> CalculatingGame.play();
+            case GCD -> FindingGCDGame.play();
+            case PROGRESSION -> FillingProgressionRangeGame.play();
+            case PRIME -> ChoosingIfPrimeGame.play();
+            default -> {
+                System.out.print("Exit.");
             }
         }
         sc.close();
