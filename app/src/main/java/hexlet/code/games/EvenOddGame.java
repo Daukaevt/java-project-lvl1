@@ -21,11 +21,11 @@ public class EvenOddGame {
             "Answer 'yes' if the number is even, otherwise answer 'no'.";
     /**
      * check if given nuber is even.
-     * @param num given number.
+     * @param number given number.
      * @return 'yes' or 'no' answer.
      */
-    public static boolean isEven(final int num) {
-        return num % 2 == 0;
+    public static boolean isEven(final int number) {
+        return number % 2 == 0;
     }
     /**
      * start Even game logic.

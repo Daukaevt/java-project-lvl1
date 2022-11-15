@@ -36,36 +36,36 @@ public class FillingProgressionRangeGame {
     public static void play() {
         HashMap<String, String> questionsAndAnswers = new HashMap<>();
         for (int i = 0; i < GAMES; i++) {
-            int firstRangeNum = RandomUtils.makeRandom(0, MAXRND);
+            int firstRangeNumber = RandomUtils.makeRandom(0, MAXRND);
             int stepRange = RandomUtils.makeRandom(0, MAXSTEP) + 1;
             int rangeSize = RandomUtils.makeRandom(MIN_LENGTH, MAX_LENGTH);
-            int missedNumIndex = RandomUtils.makeRandom(0, rangeSize - 1);
-            int[] questArr = makeProgression(
-                    firstRangeNum,
+            int missedNumberIndex = RandomUtils.makeRandom(0, rangeSize - 1);
+            int[] progression = makeProgression(
+                    firstRangeNumber,
                     stepRange,
                     rangeSize);
-            int result = questArr[missedNumIndex];
+            int result = progression[missedNumberIndex];
             questionsAndAnswers.put(
-                    makeQuestion(questArr, missedNumIndex),
+                    makeQuestion(progression, missedNumberIndex),
                     String.valueOf(result));
         }
         GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
     /**
      * rebuild progression array with missed number.
-     * @param questionArray progression array.
+     * @param progression progression array.
      * @param missedNumberIndex number to find index.
      * @return incomplete progression.
      */
     private static String makeQuestion(
-            final int[] questionArray,
+            final int[] progression,
             final int missedNumberIndex) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < questionArray.length; i++) {
+        for (int i = 0; i < progression.length; i++) {
             String num = i == missedNumberIndex
                     ? ".."
-                    : String.valueOf(questionArray[i]);
-            String separator = i != questionArray.length - 1 ? " " : "";
+                    : String.valueOf(progression[i]);
+            String separator = i != progression.length - 1 ? " " : "";
             stringBuilder.append(num).append(separator);
         }
         return stringBuilder.toString();
@@ -73,21 +73,21 @@ public class FillingProgressionRangeGame {
 
     /**
      * make progression range of numbers.
-     * @param firstRangeNum number wich starts progression.
+     * @param firstRangeNumber number wich starts progression.
      * @param stepRange difference between two closest numbers in range.
      * @param rangeSize progression range size.
      * @return progression array.
      */
     public static int[] makeProgression(
-            final int firstRangeNum,
+            final int firstRangeNumber,
             final int stepRange,
             final int rangeSize) {
-        int[] progressionArr;
-        progressionArr = new int[rangeSize];
+        int[] progression;
+        progression = new int[rangeSize];
         for (int i = 0; i < rangeSize; i++) {
-            progressionArr[i] = firstRangeNum + stepRange * i;
+            progression[i] = firstRangeNumber + stepRange * i;
         }
-        return progressionArr;
+        return progression;
     }
 }
 

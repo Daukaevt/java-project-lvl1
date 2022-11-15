@@ -9,11 +9,11 @@ public class FindingGCDGame {
     /**
      * first expression number.
      */
-    private static int firstNum;
+    private static int firstNumber;
     /**
      * second expression number.
      */
-    private static int secondNum;
+    private static int secondNumber;
     /**
      * number of games.
      */
@@ -35,7 +35,7 @@ public class FindingGCDGame {
         for (int i = 0; i < GAMES; i++) {
             questionsAndAnswers.put(
                     makeGCDExpression(),
-                    String.valueOf(findGCD(firstNum, secondNum)));
+                    String.valueOf(findGCD(firstNumber, secondNumber)));
         }
         GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
@@ -45,31 +45,31 @@ public class FindingGCDGame {
      */
     private static String makeGCDExpression() {
         var stringBuilder = new StringBuilder();
-        firstNum = RandomUtils.makeRandom(0, MAXRND);
-        stringBuilder.append(firstNum);
+        firstNumber = RandomUtils.makeRandom(0, MAXRND);
+        stringBuilder.append(firstNumber);
         stringBuilder.append(" ");
-        secondNum = RandomUtils.makeRandom(0, MAXRND);
-        stringBuilder.append(secondNum);
+        secondNumber = RandomUtils.makeRandom(0, MAXRND);
+        stringBuilder.append(secondNumber);
         return stringBuilder.toString();
     }
     /**
      * make correct answer.
-     * @param firstNumber first number of the expression.
-     * @param secondNumber second number of the expression.
+     * @param firstNum first number of the expression.
+     * @param secondNum second number of the expression.
      * @return solution string.
      */
-    public static int findGCD(final int firstNumber, final int secondNumber) {
-        int[] arr = {firstNumber, secondNumber};
-        Arrays.sort(arr);
-        var remainder = arr[0];
+    public static int findGCD(final int firstNum, final int secondNum) {
+        int[] numbers = {firstNum, secondNum};
+        Arrays.sort(numbers);
+        var remainder = numbers[0];
         do {
             if (remainder == 0) {
                 break;
             }
-            remainder = arr[1] % arr[0];
-            arr[1] = arr[0];
-            arr[0] = remainder;
+            remainder = numbers[1] % numbers[0];
+            numbers[1] = numbers[0];
+            numbers[0] = remainder;
         } while (remainder != 0);
-        return arr[1];
+        return numbers[1];
     }
 }

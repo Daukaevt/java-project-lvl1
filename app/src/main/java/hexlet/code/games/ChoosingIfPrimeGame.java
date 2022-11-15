@@ -33,16 +33,16 @@ public class ChoosingIfPrimeGame {
     }
     /**
      * it gives correct answer if given number prime or not.
-     * @param quest given number.
+     * @param questionNumber given number.
      * @return "yes" or "no".
      */
     public static boolean isPrime(
-            final int quest) {
-        if (quest < 2) {
+            final int questionNumber) {
+        if (questionNumber < 2) {
             return false;
         }
-        for (int i = 2; i < quest; i++) {
-            if (quest % i == 0) {
+        for (int i = 2; i < questionNumber; i++) {
+            if (questionNumber % i == 0) {
                 return false;
             }
         }
