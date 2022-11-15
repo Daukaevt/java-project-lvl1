@@ -6,18 +6,6 @@ import java.util.Scanner;
 
 public class GameEngine {
     /**
-     * quest wins count.
-     */
-    private static int count = 0;
-    /**
-     * user input answer.
-     */
-    private static String input = null;
-    /**
-     * scanner class instance.
-     */
-    private static final Scanner SCANNER = new Scanner(System.in);
-    /**
      * wrong answer remark.
      */
     private static final String NOPE =
@@ -39,17 +27,19 @@ public class GameEngine {
     public static void run(
             final String gameQuest,
             final HashMap<String, String> questionsAndAnswers) {
+        int count = 0;
         String name = null;
+        String input = "";
+        final Scanner scanner = new Scanner(System.in);
         System.out.print(WELCOME);
-        if (SCANNER.hasNext()) {
-            name = SCANNER.next();
-            System.out.println("Hello, " + name + "!");
+        if (scanner.hasNext()) {
+            name = scanner.next();
+            System.out.println("Hello, " + name + "!\n" + gameQuest);
         }
-        System.out.println(gameQuest);
         for (Map.Entry<String, String> entry: questionsAndAnswers.entrySet()) {
             System.out.print("Question: " + entry.getKey() + "\nYour answer: ");
-            if (SCANNER.hasNext()) {
-                input = SCANNER.next();
+            if (scanner.hasNext()) {
+                input = scanner.next();
             }
             if (input.equals(entry.getValue())) {
                 System.out.println("Correct!");
@@ -60,9 +50,8 @@ public class GameEngine {
                 break;
             }
         }
-        if (count == questionsAndAnswers.size()) {
-            System.out.println("Congratulations, " + name + "!");
-        }
-        SCANNER.close();
+        System.out.println(count == questionsAndAnswers.size()
+                ? "Congratulations, " + name + "!" : "");
+        scanner.close();
     }
 }
