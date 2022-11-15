@@ -10,7 +10,7 @@ public class RandomUtils {
      * @return random int from min to max.
      */
     public static int makeRandom(final int minRnd, final int maxRnd) {
-        Random rnd = new Random(); //instance of random class
-        return rnd.nextInt(minRnd, maxRnd);
+        Random random = new Random(); //instance of random class
+        return random.nextInt(minRnd, maxRnd);
     }
 }
