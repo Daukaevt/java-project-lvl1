@@ -7,10 +7,6 @@ import java.util.HashMap;
 
 public class CalculatingGame {
     /**
-     * result of expression.
-     */
-    private static int result; //так, зачем глобальную переменную - то? делаешь локальную, и геттеры с сеттерами))
-    /**
      * max random number.
      */
     public static final int MAXRND = 100;
@@ -36,11 +32,13 @@ public class CalculatingGame {
             int firstNumber = RandomUtils.makeRandom(0, MAXRND);
             int secondNumber = RandomUtils.makeRandom(0, MAXRND);
             int mathOperation = RandomUtils.makeRandom(0, MAXMATHOPERATIONS);
-            questionsAndAnswers.put(makeMathExpression(
-                    firstNumber,
+            String question = makeMathExpression(firstNumber,
                     mathOperation,
-                    secondNumber),
-                    String.valueOf(result));
+                    secondNumber)[0];
+            String answer = makeMathExpression(firstNumber,
+                    mathOperation,
+                    secondNumber)[1];
+            questionsAndAnswers.put(question, answer);
         }
         GameEngine.run(GAMECONDITION, questionsAndAnswers);
     }
@@ -51,13 +49,15 @@ public class CalculatingGame {
      * @param secondNumber second number of the expression.
      * @return question string.
      */
-    public static String makeMathExpression(
+    public static String[] makeMathExpression(
             final int firstNumber,
             final int mathOperation,
             final int secondNumber
     ) {
-        var sb = new StringBuilder();
-        sb.append(firstNumber).append(" ");
+        String[] expression = new String[2];
+        int result;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(firstNumber).append(" ");
         char mathOperator;
         switch (mathOperation) {
             case 0 -> {
@@ -75,8 +75,9 @@ public class CalculatingGame {
             default -> throw new IllegalStateException(
                     "Unexpected value: " + mathOperation);
         }
-        sb.append(mathOperator).append(" ");
-        sb.append(secondNumber);
-        return sb.toString();
+        stringBuilder.append(mathOperator).append(" ");
+        expression[0] = stringBuilder.append(secondNumber).toString();
+        expression[1] = String.valueOf(result);
+        return expression;
     }
 }
