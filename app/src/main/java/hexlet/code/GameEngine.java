@@ -6,6 +6,14 @@ import java.util.Scanner;
 
 public class GameEngine {
     /**
+     * username.
+     */
+    private static String name = null;
+    /**
+     * user input.
+     */
+    private static String input = "";
+    /**
      * wrong answer remark.
      */
     private static final String NOPE =
@@ -28,8 +36,6 @@ public class GameEngine {
             final String gameQuest,
             final HashMap<String, String> questionsAndAnswers) {
         int count = 0;
-        String name = null;
-        String input = "";
         final Scanner scanner = new Scanner(System.in);
         System.out.print(WELCOME);
         if (scanner.hasNext()) {
@@ -42,16 +48,16 @@ public class GameEngine {
                 input = scanner.next();
             }
             if (input.equals(entry.getValue())) {
-                System.out.println("Correct!");
+                System.out.print("Correct!");
                 count++;
             } else {
-                System.out.print("'" + input + NOPE + entry.getValue()
-                        + AGAIN + name + "!");
+                System.out.println("'" + input + NOPE
+                        + entry.getValue() + AGAIN + name + "!");
                 break;
             }
+            System.out.println(count == questionsAndAnswers.size()
+                    ? "\nCongratulations, " + name + "!" : "");
         }
-        System.out.println(count == questionsAndAnswers.size()
-                ? "Congratulations, " + name + "!" : "");
         scanner.close();
     }
 }
